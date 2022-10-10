@@ -15,33 +15,31 @@
 
 <body>
 
-    <!-- #region Container -->
-    <div class="container">
-
-        <!-- #region Main Header -->
+    <!-- #region Main Header -->
+    <div class="container-lg">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" style="border: 0px;" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <span class="navbar-toggler" style="border: 0px;">
                     <form class="form-horizontal ">
-                        <input type="search" class="form-control"
+                        <input type="search" class="form-control customshadow"
                             style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
                             placeholder=" &#xF002; Search Mission" aria-label="Search" />
                     </form>
                 </span>
-                <span class="navbar-toggler" style="border: 0px;">
+                <span class="navbar-toggler" style="border: 0px; margin-right: -35px;">
                     <img src="./assets/volunteer1.png" width="30" height="30" class="d-inline-block rounded-circle"
                         alt="">
                 </span>
 
-                <button class="navbar-toggler" style="border: 0px;" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" style="border: 0px; box-shadow: none; margin-right: -15px;" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-sliders2-vertical"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -119,25 +117,23 @@
                 </div>
             </div>
         </nav>
-        <hr style="margin: 0px;">
-        <!-- endregion -->
+    </div>
+    <!-- endregion -->
 
-        <!-- #region Mission Header -->
-        <nav class="navbar navbar-expand-lg">
+    <hr style="margin: 0px;">
+
+    <!-- #region Mission Header -->
+    <div class="container-lg">
+        <nav class="navbar navbar-expand-lg py-0">
             <div class="container-fluid">
-                <!-- <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="bi bi-three-dots-vertical"></i>
-                </button> -->
                 <div class="collapse navbar-collapse" id="navbarScroll">
-                    <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block ">
-                        <input type="search" class="form-control"
+                    <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block p-2">
+                        <input type="search" class="form-control customshadow"
                             style="width: 50vw; border: 0px; font-family:Arial, FontAwesome;"
                             placeholder=" &#xF002; Search Mission" aria-label="Search" />
                     </form>
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item dropdown me-md-4">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navInline">
+                        <li class="nav-item dropdown me-lg-4 border-lg-left border-sm-left-0 p-2">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Country <i class="bi bi-chevron-down"></i>
                             </a>
@@ -149,7 +145,7 @@
                                 <li><a class="dropdown-item" href="#">Japan</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown me-md-4">
+                        <li class="nav-item dropdown me-md-4 border-sm-left-0 border-lg-left p-2">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 City <i class="bi bi-chevron-down"></i>
                             </a>
@@ -161,7 +157,7 @@
                                 <li><a class="dropdown-item" href="#">Hydrabad</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown me-md-4">
+                        <li class="nav-item dropdown me-md-4 border-lg-left border-sm-left-0 p-2">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Theme <i class="bi bi-chevron-down"></i>
                             </a>
@@ -173,9 +169,12 @@
                                 <li><a class="dropdown-item" href="#">Nutritions</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown me-md-4">
-                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Skills <i class="bi bi-chevron-down"></i>
+                        <li
+                            class="nav-item dropdown me-md-4 border-lg-left border-lg-right border-sm-left-0 border-sm-right-0 p-2">
+                            <a class="nav-link" href="#" role="button"
+                                style="font-family:Arial, Helvetica, sans-serif, Bootstrap-icons;"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Skills &#xF282;
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Anthropology</a></li>
@@ -189,43 +188,46 @@
                 </div>
             </div>
         </nav>
-        <div class="d-none d-lg-block">
-            <hr style="margin: 0px;">
-        </div>
-        <!-- endregion Mission Header end -->
+    </div>
+    <!-- endregion Mission Header end -->
+
+    <hr class="d-none d-lg-block" style="margin: 0px;">
+
+    <!-- #region Conainer main content -->
+    <div class="container-lg">
 
         <!-- #region pills -->
         <div class="mt-md-3 mb-md-3">
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
                 <span class="text-wrap">Tree Plantation</span>
                 <i class="bi bi-x"></i>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
                 <span class="text-wrap">Canada</span>
                 <i class="bi bi-x"></i>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
                 <span class="text-wrap">Toronto</span>
                 <i class="bi bi-x"></i>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
                 <span class="text-wrap">Montreal</span>
                 <i class="bi bi-x"></i>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
                 <span class="text-wrap">Environment</span>
                 <i class="bi bi-x"></i>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
                 <span class="text-wrap">Nutrition</span>
                 <i class="bi bi-x"></i>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
                 <span class="text-wrap">Anthropology</span>
                 <i class="bi bi-x"></i>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
-                <span class="text-wrap">Environmental Science</span>
+            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1">
+                <span class="text-wrap">Environmental</span>
                 <i class="bi bi-x"></i>
             </button>
 
@@ -271,7 +273,7 @@
         <div class="row mb-5">
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card  cardWidth shadow h-100">
                     <img src="./assets/card_1.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -312,21 +314,22 @@
                                     style="background-color: white; color: #757575; ">
                                     From 10/01/2019 until 25/02/2019</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12; margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Seats left
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Dedline</div>
                         </div>
-                        <hr>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -340,7 +343,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
                     <img src="./assets/card_2.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -381,21 +384,22 @@
                                     style="background-color: white; color: #757575; ">
                                     From 10/01/2019 until 25/02/2019</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-person me-2 ms-3"></i>250</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Alrady volunteered
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Dedline</div>
                         </div>
-                        <hr>
+                        <hr style="margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -409,7 +413,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card  cardWidth shadow h-100">
                     <img src="./assets/card_3.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -450,21 +454,22 @@
                                     style="background-color: white; color: #757575; ">
                                     Ongoing Opportunity</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12; margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Seats Left
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Dedline</div>
                         </div>
-                        <hr>
+                        <hr style="margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -478,7 +483,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
                     <img src="./assets/card_4.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -519,21 +524,22 @@
                                     style="background-color: white; color: #757575; ">
                                     Ongoing Opportunity</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-person me-2 ms-3"></i>250</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Alrady volunteered
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Dedline</div>
                         </div>
-                        <hr>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -547,7 +553,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card  cardWidth shadow h-100">
                     <img src="./assets/card_5.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -588,26 +594,28 @@
                                     style="background-color: white; color: #757575; ">
                                     Plant 10,000 Trees</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-5 text-wrap">
-                                <span><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
-                            <div class="col-1"><i class="bi bi-vinyl d-in"></i></div>
-                            <div class="col-6 text-wrap d-inline">
-                                <span class="progress" style="height: 10px; margin-top: 8px;">
+
+                            <div class="col-1"><i class="bi bi-vinyl"></i></div>
+                            <div class="col-5 text-wrap d-inline">
+                                <span class="progress" style="height: 10px; margin-top: 8px; width: 100%;">
                                     <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
                                         style="width: 68%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
                                     </span>
                                 </span>
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Shets left
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">8000 achieved</div>
                         </div>
-                        <hr>
+
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -621,7 +629,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card  cardWidth shadow h-100">
                     <img src="./assets/card_6.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -662,26 +670,27 @@
                                     style="background-color: white; color: #757575; ">
                                     Plant 10,000 Trees</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12; margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-5 text-wrap">
-                                <span><i class="bi bi-person me-2 ms-3"></i>10</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
-                            <div class="col-1"><i class="bi bi-vinyl d-in"></i></div>
-                            <div class="col-6 text-wrap d-inline">
-                                <span class="progress" style="height: 10px; margin-top: 8px;">
+
+                            <div class="col-1"><i class="bi bi-vinyl"></i></div>
+                            <div class="col-5 text-wrap d-inline">
+                                <span class="progress" style="height: 10px; margin-top: 8px; width: 100%;">
                                     <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
                                         style="width: 68%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
                                     </span>
                                 </span>
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Shets left
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">8000 achieved</div>
                         </div>
-                        <hr>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -695,7 +704,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card  cardWidth shadow h-100">
                     <img src="./assets/card_1.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -720,7 +729,7 @@
                         <p class="card-text cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                             eiusmod tempor incididunt ut labore...</p>
                         <div class="mt-1 mb-4">
-                            <span class="float-start">Tree Canada</span>
+                            <span class="float-start cardDedlineSeats">Tree Canada</span>
                             <span class="float-end">
                                 <i class="bi bi-star-fill text-warning "></i>
                                 <i class="bi bi-star-fill text-warning "></i>
@@ -736,21 +745,22 @@
                                     style="background-color: white; color: #757575; ">
                                     From 10/01/2019 until 25/02/2019</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Seats left
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Dedline</div>
                         </div>
-                        <hr>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -764,7 +774,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card  cardWidth shadow h-100">
                     <img src="./assets/card_2.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -805,21 +815,22 @@
                                     style="background-color: white; color: #757575; ">
                                     From 10/01/2019 until 25/02/2019</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-person me-2 ms-3"></i>250</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Alrady volunteered
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Dedline</div>
                         </div>
-                        <hr>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -833,7 +844,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card  cardWidth shadow">
+                <div class="card  cardWidth shadow h-100">
                     <img src="./assets/card_3.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="cardTitleAction">
@@ -874,21 +885,22 @@
                                     style="background-color: white; color: #757575; ">
                                     Ongoing Opportunity</span>
                             </div>
-                            <hr style=" z-index: -12;">
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
                             </div>
                             <div class="col-6 text-wrap">
-                                <span><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
                             </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Seats Left
-                            </div>
-                            <div class="col-6 cardSmallText" style="padding-left: 50px;">Dedline</div>
                         </div>
-                        <hr>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
 
                         <div class="cardAction mb-1">
                             <button type="button" class="btn btn-outline-warning rounded-pill"
@@ -909,12 +921,12 @@
         <nav aria-label="Page navigation example mt-5 mb-5">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Previous">
+                    <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Previous">
                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                     </a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Previous">
+                    <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Previous">
                         <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
                     </a>
                 </li>
@@ -924,12 +936,12 @@
                 <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">4</a></li>
                 <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">5</a></li>
                 <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Next">
+                    <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Next">
                         <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
                     </a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Next">
+                    <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Next">
                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                     </a>
                 </li>
@@ -938,15 +950,18 @@
 
         <!-- endregion Pagenation -->
 
-        <!-- #region Footer -->
-        <hr>
-        <div class="row mt-5 mb-4 ms-3 ">
-            <a href="#" class="link-dark text-center">Privacy Policy</a>
-        </div>
-        <!-- endregion Footer -->
-
     </div>
-    <!-- endregion Container -->
+    <!-- endregion Conainer main content -->
+
+    <hr>
+
+    <!-- #region Footer -->
+    <div class="container-lg">
+        <div class="row mt-5 mb-4 ms-3 ">
+            <a href="#" class="link-dark">Privacy Policy</a>
+        </div>
+    </div>
+    <!-- endregion Footer -->
 
     <!-- #region Scripts -->
 

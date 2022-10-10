@@ -13,9 +13,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Story Listing</title>
     <style>
-        .centered {
+        .parent {
+            position: relative;
+        }
+
+        .child {
             position: absolute;
-            top: 40%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
@@ -24,33 +28,31 @@
 
 <body>
 
-    <!-- #region Container -->
-    <div class="container">
-
-        <!-- #region Main Header -->
+    <!-- #region Main Header -->
+    <div class="container-lg">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" style="border: 0px;" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <span class="navbar-toggler" style="border: 0px;">
                     <form class="form-horizontal ">
-                        <input type="search" class="form-control"
+                        <input type="search" class="form-control customshadow"
                             style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
                             placeholder=" &#xF002; Search Mission" aria-label="Search" />
                     </form>
                 </span>
-                <span class="navbar-toggler" style="border: 0px;">
+                <span class="navbar-toggler" style="border: 0px; margin-right: -35px;">
                     <img src="./assets/volunteer1.png" width="30" height="30" class="d-inline-block rounded-circle"
                         alt="">
                 </span>
 
-                <button class="navbar-toggler" style="border: 0px;" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" style="border: 0px; box-shadow: none; margin-right: -15px;" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-sliders2-vertical"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -128,25 +130,22 @@
                 </div>
             </div>
         </nav>
-        <hr style="margin: 0px;">
-        <!-- endregion -->
+    </div>
+    <!-- endregion -->
+    <hr style="margin: 0px;">
 
-        <!-- #region Mission Header -->
-        <nav class="navbar navbar-expand-lg">
+    <!-- #region Mission Header -->
+    <div class="container-lg">
+        <nav class="navbar navbar-expand-lg py-0">
             <div class="container-fluid">
-                <!-- <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="bi bi-three-dots-vertical"></i>
-                </button> -->
                 <div class="collapse navbar-collapse" id="navbarScroll">
-                    <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block ">
-                        <input type="search" class="form-control"
+                    <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block p-2">
+                        <input type="search" class="form-control customshadow"
                             style="width: 50vw; border: 0px; font-family:Arial, FontAwesome;"
                             placeholder=" &#xF002; Search Mission" aria-label="Search" />
                     </form>
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item dropdown me-md-4">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navInline">
+                        <li class="nav-item dropdown me-lg-4 border-lg-left border-sm-left-0 p-2">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Country <i class="bi bi-chevron-down"></i>
                             </a>
@@ -158,7 +157,7 @@
                                 <li><a class="dropdown-item" href="#">Japan</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown me-md-4">
+                        <li class="nav-item dropdown me-md-4 border-sm-left-0 border-lg-left p-2">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 City <i class="bi bi-chevron-down"></i>
                             </a>
@@ -170,7 +169,7 @@
                                 <li><a class="dropdown-item" href="#">Hydrabad</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown me-md-4">
+                        <li class="nav-item dropdown me-md-4 border-lg-left border-sm-left-0 p-2">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Theme <i class="bi bi-chevron-down"></i>
                             </a>
@@ -182,9 +181,12 @@
                                 <li><a class="dropdown-item" href="#">Nutritions</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown me-md-4">
-                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Skills <i class="bi bi-chevron-down"></i>
+                        <li
+                            class="nav-item dropdown me-md-4 border-lg-left border-lg-right border-sm-left-0 border-sm-right-0 p-2">
+                            <a class="nav-link" href="#" role="button"
+                                style="font-family:Arial, Helvetica, sans-serif, Bootstrap-icons;"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Skills &#xF282;
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Anthropology</a></li>
@@ -198,45 +200,45 @@
                 </div>
             </div>
         </nav>
-        <div class="d-none d-lg-block">
-            <hr style="margin: 0px;">
-        </div>
-        <!-- endregion Mission Header end -->
-
     </div>
-    <!-- endregion Container -->
+    <!-- endregion Mission Header end -->
+
+    <hr class="d-none d-lg-block" style="margin: 0px;">
 
     <!-- #region full width image -->
-    <div>
 
+    <div class="parent">
         <img src="./assets/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="Snow"
             style="width:100%; height: 350px; object-fit: cover; object-position: 100% 33%; filter: brightness(40%);">
 
-    </div>
-    <div class="centered" style="color: white;">
-        <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur impedit
-            error
-            perferendis explicabo
-            odit nemo doloremque nisi repudiandae molestiae expedita?</p>
-        <div class="cardAction mb-1">
-            <button type="button" class="btn btn-outline-light rounded-pill mt-2"
-                style="margin-left: auto; margin-right: auto;">
-                <a class="text-wrap link-dark text-light">Share your story</a>
-                <i class="bi bi-arrow-right ms-2"></i>
-            </button>
+        <div class="child" style="color: white;">
+            <p class="text-center" style="font-size: 1vw;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur
+                impedit
+                error
+                perferendis explicabo
+                odit nemo doloremque nisi repudiandae molestiae expedita?</p>
+            <div class="cardAction mb-1">
+                <button type="button" class="btn btn-outline-light rounded-pill mt-2"
+                    style="margin-left: auto; margin-right: auto;">
+                    <a class="text-wrap link-dark text-light">Share your story</a>
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
         </div>
     </div>
 
-    </div>
+
+
     <!-- endregion full width image -->
 
     <!-- #region Story Cards -->
 
-    <div class="container mt-5 mb-5">
+    <div class="container-lg mt-5 mb-5">
         <div class="row">
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_1.png" class="card-img-top" alt="...">
@@ -267,7 +269,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_2.png" class="card-img-top" alt="...">
@@ -298,7 +300,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_3.png" class="card-img-top" alt="...">
@@ -329,7 +331,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_4.png" class="card-img-top" alt="...">
@@ -360,7 +362,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_5.png" class="card-img-top" alt="...">
@@ -391,7 +393,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_6.png" class="card-img-top" alt="...">
@@ -422,7 +424,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_1.png" class="card-img-top" alt="...">
@@ -453,7 +455,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_2.png" class="card-img-top" alt="...">
@@ -484,7 +486,7 @@
             </div>
 
             <div class="col-sm-12 col-md-4 mb-4">
-                <div class="card cardWidth shadow">
+                <div class="card cardWidth shadow h-100">
 
                     <span class="cont">
                         <img src="./assets/card_3.png" class="card-img-top" alt="...">
@@ -515,52 +517,55 @@
             </div>
 
         </div>
+        <!-- endregion Story Cards -->
+
+        <!-- #region Pagenation -->
+        <div class="mt-5 mb-5">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Previous">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Previous">
+                            <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">1</a></li>
+                    <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">2</a></li>
+                    <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">3</a></li>
+                    <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">4</a></li>
+                    <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Next">
+                            <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link btn btn-outline-warning me-1" href="#" aria-label="Next">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
     </div>
-
-
-    <!-- endregion Story Cards -->
-
-    <!-- #region Pagenation -->
-    <div class="mt-5 mb-5">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Previous">
-                        <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Previous">
-                        <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
-                    </a>
-                </li>
-                <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">1</a></li>
-                <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">2</a></li>
-                <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">3</a></li>
-                <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">4</a></li>
-                <li class="page-item me-1"><a class="page-link btn btn-outline-warning" href="#">5</a></li>
-                <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Next">
-                        <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link me-1" href="#" aria-label="Next">
-                        <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
     <!-- endregion Pagenation -->
 
     <!-- #region Footer -->
     <hr>
-    <div class="row mt-5 mb-4 ms-3 ">
-        <a href="#" class="link-dark text-center">Privacy Policy</a>
+    <div class="container-lg">
+        <div class="mt-5 mb-4 ms-3 ">
+            <a href="#" class="link-dark">Privacy Policy</a>
+        </div>
     </div>
     <!-- endregion Footer -->
+
+
+
 
     <!-- #region Scripts -->
 
