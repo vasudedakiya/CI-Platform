@@ -16,25 +16,25 @@
 
 <body>
 
-    <!-- #region Container -->
-    <div class="container">
-        <!-- #region Main Header -->
+
+    <!-- #region Main Header -->
+    <div class="container-lg">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" style="border: 0px;" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <span class="navbar-toggler" style="border: 0px;">
                     <form class="form-horizontal ">
-                        <input type="search" class="form-control"
+                        <input type="search" class="form-control customshadow"
                             style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
                             placeholder=" &#xF002; Search Mission" aria-label="Search" />
                     </form>
                 </span>
-                <span class="navbar-toggler" style="border: 0px;">
+                <span class="navbar-toggler" style="border: 0px; margin-right: -20px;">
                     <img src="./assets/volunteer1.png" width="30" height="30" class="d-inline-block rounded-circle"
                         alt="">
                 </span>
@@ -114,15 +114,16 @@
                 </div>
             </div>
         </nav>
-        <hr style="margin: 0px;">
-        <!-- endregion Main Header-->
+    </div>
+    <hr style="margin: 0px;">
+    <!-- endregion Main Header-->
 
-        <!-- #region main content -->
-
+    <!-- #region main content -->
+    <div class="container-lg">
         <div class="row p-5">
             <!-- #region Sidebar -->
-            <div class="col-md-2 col-sm-12 p-3 h-50 border text-center">
-                <img src="./assets/volunteer1.png" width="150" height="150"
+            <div class="col-lg-2 col-md-12 col-sm-12 p-3 h-50 border text-center">
+                <img src="./assets/volunteer1.png" width="100%" height="100%"
                     class="d-inline-block m-auto rounded-circle d-none d-lg-block" alt="">
                 <p class="fs-4 mt-md-3 d-none d-lg-block">
                     Evan Donohue
@@ -138,7 +139,7 @@
             <!-- endregion Sidebar -->
 
             <!-- #region form -->
-            <div class="col-md-10 col-sm-12 ps-4">
+            <div class="col-lg-10 col-md-12 col-sm-12 ps-4">
                 <form action="" method="post">
                     <div>
                         <p class="fs-3">Basic Information</p>
@@ -364,15 +365,18 @@
             </div>
             <!-- endregion form -->
         </div>
+    </div>
+    <!-- endregion main content -->
 
-        <!-- endregion main content -->
-
-        <!-- #region Footer -->
-        <hr>
-        <div class="row mt-5 mb-4 ms-3 text-center ">
-            <a href="#" class="link-dark " data-bs-toggle="modal" data-bs-target="#contactUs"
-                data-bs-whatever="@getbootstrap">Contact Us</a>
-            <a href="#" class="link-dark ">Privacy Policy</a>
+    <!-- #region Footer -->
+    <hr>
+    <div class="container-lg">
+        <div class="row mt-5 mb-4 ms-3 ">
+            <span>
+                <a href="#" class="link-dark " data-bs-toggle="modal" data-bs-target="#contactUs"
+                    data-bs-whatever="@getbootstrap">Contact Us</a>
+                <a href="#" class="link-dark ms-3">Privacy Policy</a>
+            </span>
             <span>
                 <div class="modal fade" id="contactUs" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -418,10 +422,8 @@
                 </div>
             </span>
         </div>
-        <!-- endregion Footer -->
-
     </div>
-    <!-- endregion Container -->
+    <!-- endregion Footer -->
 
     <!-- #region Scripts -->
 
