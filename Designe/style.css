@@ -168,7 +168,8 @@ a:active.link-dark { text-decoration: none; color:black; }
 }
 
 .button{
-  margin-top: 20px;
+  
+  margin-top: 100px;
   position: absolute;
   opacity: 0;
 }
