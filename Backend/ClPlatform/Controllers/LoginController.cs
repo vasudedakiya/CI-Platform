@@ -1,7 +1,6 @@
 ﻿using ClPlatform.DataModels;
 using ClPlatform.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Text;
 
 namespace ClPlatform.Controllers

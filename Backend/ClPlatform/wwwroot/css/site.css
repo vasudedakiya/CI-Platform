@@ -486,3 +486,10 @@ a:active.link-dark {
         height: auto;
     }
 }
+
+.list-group-item.active {
+    z-index: 2;
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+}

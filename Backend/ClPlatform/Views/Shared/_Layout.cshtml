@@ -14,28 +14,107 @@
 <body>
     @if(controllerName != "Login"){
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ClPlatform</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <div class="container-lg">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <span class="navbar-toggler" style="border: 0px;">
+                        <form class="form-horizontal ">
+                            <input type="search" class="form-control customshadow"
+                                style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
+                                placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                        </form>
+                    </span>
+                    <span class="navbar-toggler" style="border: 0px; margin-right: -20px;">
+                        <img src="~/Assets/volunteer1.png" width="30" height="30" class="d-inline-block rounded-circle"
+                            alt="">
+                    </span>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown me-md-5 ms-md-5">
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Explore <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Top Themes <i
+                                                class="bi bi-chevron-right float-end"></i></a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Education</a></li>
+                                            <li><a class="dropdown-item" href="#">Children</a></li>
+                                            <li><a class="dropdown-item" href="#">Helth</a></li>
+                                            <li><a class="dropdown-item" href="#">Animals</a></li>
+                                            <li><a class="dropdown-item" href="#">Nutritions</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Top Country <i
+                                                class="bi bi-chevron-right float-end"></i></a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">India</a></li>
+                                            <li><a class="dropdown-item" href="#">China</a></li>
+                                            <li><a class="dropdown-item" href="#">USA</a></li>
+                                            <li><a class="dropdown-item" href="#">Australia</a></li>
+                                            <li><a class="dropdown-item" href="#">Japan</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Top Organisation <i
+                                                class="bi bi-chevron-right"></i></a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">WHO</a></li>
+                                            <li><a class="dropdown-item" href="#">APHA</a></li>
+                                            <li><a class="dropdown-item" href="#">TCC</a></li>
+                                            <li><a class="dropdown-item" href="#">NIH</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Most Ranked</a></li>
+                                    <li><a class="dropdown-item" href="#">Top Favourite</a></li>
+                                    <li><a class="dropdown-item" href="#">Recommended</a></li>
+                                    <li><a class="dropdown-item" href="#">Random</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item me-md-5">
+                                <a class="nav-link" href="#">Stories</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Policy <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Volunteering</a></li>
+                                    <li><a class="dropdown-item" href="#">Sponsored</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a class="navbar-brand d-flex" href="#">
+                            <img src="~/Assets/volunteer1.png" width="30" height="30"
+                                class="d-inline-block me-2 rounded-circle d-none d-lg-block" alt="">
+                            <span class="dropdown my-2 my-sm-0">
+                                <a class="link-dark nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Evan Donohue
+                                    <i class="bi bi-chevron-down"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-lg-end">
+                                    <li><a class="dropdown-item" href="#">Dashbord</a></li>
+                                    <li><a class="dropdown-item" href="#">My Account</a></li>
+                                    <li><a class="dropdown-item" href="#">Help Center</a></li>
+                                    <li><a class="dropdown-item" href="#">Log out</a></li>
+                                </ul>
+                            </span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
+        <hr style="margin: 0px;">
     </header>
     }
-    <div>
+    <div style="margin:0px;">
         <main role="main">
             @RenderBody()
         </main>
@@ -43,11 +122,14 @@
 
     @if (controllerName != "Login")
     {
-        <footer class="border-top footer text-muted">
-            <div class="container">
-            &copy; 2022 - ClPlatform - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+        <footer>
+             <hr>
+             <div class="container-lg">
+               <div class="row mt-5 mb-4 ms-3 ">
+                    <a asp-controller="Policy" asp-action="Home" class="link-dark">Privacy Policy</a>
+               </div>
+            </div>
+        </footer>
     }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
