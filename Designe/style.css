@@ -20,6 +20,10 @@
   }
 }
 
+.customshadow{
+  height: 56px;
+}
+
 .customshadow:focus{
   box-shadow: none !important;
   border-color: #2b64b1 !important;
@@ -391,4 +395,13 @@ a:active.link-dark { text-decoration: none; color:black; }
   .navInline{
     display: -webkit-box !important;
   }
+}
+
+
+.text-gray{
+  color: #757575 !important;
+}
+
+.text-gray:hover{
+  color: white !important;
 }

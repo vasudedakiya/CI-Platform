@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- bootstrap5 dataTables css cdn -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
+
+    <title>Story List</title>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start pt-4"
+                        id="menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link align-middle px-0 text-light">
+                                <i class="bi bi-person-fill mr-3"></i> <span class="ms-1 d-none d-sm-inline">User</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light">
+                                <i class="bi bi-file-earmark-text-fill mr-3"></i> <span
+                                    class="ms-1 d-none d-sm-inline">CMS Pagea</span>
+                                <i class="bi bi-caret-down"></i></a>
+                            <ul class="collapse nav flex-column ms-1 ps-4" id="submenu1" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0 text-light"> <span
+                                            class="d-none d-sm-inline">Policy</span> 1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 text-light"> <span
+                                            class="d-none d-sm-inline">Carousel</span> 2
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link align-middle px-0 text-light">
+                                <i class="bi bi-bullseye mr-3"></i><span class="ms-1 d-none d-sm-inline">Mission</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link align-middle px-0 text-light">
+                                <i class="bi bi-columns-gap mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Mission Theme</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link align-middle px-0 text-light">
+                                <i class="bi bi-tools mr-3"></i> <span class="ms-1 d-none d-sm-inline">Mission
+                                    Skills</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link align-middle px-0 text-light">
+                                <i class="bi bi-files mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Mission Application</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a href="#story" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light">
+                                <i class="bi bi-journal-text mr-3"></i><span
+                                    class="ms-1 d-none d-sm-inline">Story</span>
+                                <i class="bi bi-caret-down"></i></a>
+                            <ul class="collapse nav flex-column ms-1 ps-4" id="story" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0 text-light"> <span class="d-none d-sm-inline">Story
+                                            List</span> 1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 text-light"> <span class="d-none d-sm-inline">Story
+                                            Application</span> 2
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="#" class="nav-link align-middle px-0 text-light">
+                                <span class="ms-1 d-none d-sm-inline"></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
+                                class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1">loser</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col py-4 px-5">
+                <span class="fs-2 border-bottom border-dark border-2 pb-2 ">Story</span>
+                <hr style="margin-top: 6px;" class="mb-5">
+
+                <table id="datatable" class="table table-borderless">
+                    <thead class="table-light text-primary">
+                        <tr>
+                            <th>Story ID</th>
+                            <th>Story Title</th>
+                            <th>User Id</th>
+                            <th>User Name</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jhon doe do xyz abc</td>
+                            <td>133541</td>
+                            <td>fgh ffkn</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>smae ahfd asbhe shsau</td>
+                            <td>564064</td>
+                            <td>jorsy</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Jhon doe3dude oahhwfna ytcdayc</td>
+                            <td>0656065</td>
+                            <td>miamama</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Jhon doe4yasbyudiz</td>
+                            <td>054044</td>
+                            <td>websmith</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jhon doe5redixweb</td>
+                            <td>41242</td>
+                            <td>mamusn</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Jhon doe do xyz abc</td>
+                            <td>133541</td>
+                            <td>fgh ffkn</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>smae ahfd asbhe shsau</td>
+                            <td>564064</td>
+                            <td>jorsy</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Jhon doe3dude oahhwfna ytcdayc</td>
+                            <td>0656065</td>
+                            <td>miamama</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Jhon doe4yasbyudiz</td>
+                            <td>054044</td>
+                            <td>websmith</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Jhon doe5redixweb</td>
+                            <td>41242</td>
+                            <td>mamusn</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Jhon doe do xyz abc</td>
+                            <td>133541</td>
+                            <td>fgh ffkn</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>smae ahfd asbhe shsau</td>
+                            <td>564064</td>
+                            <td>jorsy</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Jhon doe3dude oahhwfna ytcdayc</td>
+                            <td>0656065</td>
+                            <td>miamama</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Jhon doe4yasbyudiz</td>
+                            <td>054044</td>
+                            <td>websmith</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Jhon doe5redixweb</td>
+                            <td>41242</td>
+                            <td>mamusn</td>
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- #region Scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- endregion Scripts -->
+
+</body>
+
+</html>

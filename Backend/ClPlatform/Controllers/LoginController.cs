@@ -30,7 +30,7 @@ namespace ClPlatform.Controllers
 
                 return View(loginModel);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("MissionList", "Mission");
         }
         #endregion Login
 

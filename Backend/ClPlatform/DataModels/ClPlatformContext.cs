@@ -208,8 +208,6 @@ namespace ClPlatform.DataModels
             {
                 entity.ToTable("Policy");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.PolicyDesc).HasMaxLength(4000);
 
                 entity.Property(e => e.Title).HasMaxLength(100);

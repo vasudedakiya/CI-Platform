@@ -26,6 +26,7 @@ namespace ClPlatform.DataModels
         public string? OrganizationDesc { get; set; }
         public int WorkDayId { get; set; }
         public string? SponcerDetail { get; set; }
+        public int IsApproved { get; set; }
 
         public virtual City City { get; set; } = null!;
         public virtual Theme Theme { get; set; } = null!;

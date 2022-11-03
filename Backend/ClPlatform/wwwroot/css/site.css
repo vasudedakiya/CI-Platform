@@ -493,3 +493,11 @@ a:active.link-dark {
     font-weight: bolder;
     background-color: white;
 }
+
+.uploadImg::before {
+    content: "Upload image here";
+}
+
+.uploadDoc::before {
+    content: "Drag and drop resume here or click*";
+}
