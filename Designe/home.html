@@ -11,15 +11,7 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Home</title>
-    <style>
-        .uploadImg::before {
-            content: "Upload image here";
-        }
 
-        .uploadDoc::before {
-            content: "Drag and drop resume here or click*";
-        }
-    </style>
 </head>
 
 <body>
@@ -108,8 +100,6 @@
                     </ul>
 
 
-                    <button type="button" class="btn btn-outline-warning rounded-pill me-3" data-bs-toggle="modal"
-                        data-bs-target="#SubmitNewMission">Submit new mission</button>
 
 
                     <a class="navbar-brand d-flex" href="#">
@@ -136,149 +126,7 @@
     <hr style="margin: 0px;">
     <!-- endregion -->
 
-    <div class="modal fade" id="SubmitNewMission" tabindex="-1" aria-labelledby="SubmitNewMissionLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new Mission</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="">Country</label>
-                                <a class="nav-link p-2 border" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Select Country <i class="bi bi-chevron-down float-end"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">India</a></li>
-                                    <li><a class="dropdown-item" href="#">USA</a></li>
-                                    <li><a class="dropdown-item" href="#">China</a></li>
-                                    <li><a class="dropdown-item" href="#">Australia</a></li>
-                                    <li><a class="dropdown-item" href="#">Japan</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <label for="">City</label>
-                                <a class="nav-link p-2 border" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Select City <i class="bi bi-chevron-down float-end"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Ahmdabad</a></li>
-                                    <li><a class="dropdown-item" href="#">Surat</a></li>
-                                    <li><a class="dropdown-item" href="#">Tokyo</a></li>
-                                    <li><a class="dropdown-item" href="#">Amsadam</a></li>
-                                    <li><a class="dropdown-item" href="#">Hydrabad</a></li>
-                                </ul>
-                            </div>
 
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Title</label>
-                                <input type="text" name="" class="form-control" placeholder="Enter Mission Title" id="">
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Description</label>
-                                <textarea name="" class="form-control" placeholder="Enter your message" id="" cols="30"
-                                    rows="4"></textarea>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Organisation Name</label>
-                                <input type="text" name="" class="form-control"
-                                    placeholder="Enter mission organisation name" id="">
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Organisation Detail</label>
-                                <textarea name="" class="form-control" placeholder="Enter your message" id="" cols="30"
-                                    rows="4"></textarea>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Start Date</label>
-                                <input type="date" name="" class="form-control" placeholder="Select start date" id="">
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">End Date</label>
-                                <input type="date" name="" class="form-control" placeholder="Select end date" id="">
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Total seats</label>
-                                <input type="number" name="" class="form-control" placeholder="Enter total seats" id="">
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission registration deadline</label>
-                                <input type="date" name="" class="form-control"
-                                    placeholder="Enter mission registration deadline" id="">
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Theme</label>
-                                <a class="nav-link p-2 border" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Select mission theme <i class="bi bi-chevron-down float-end"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Ahmdabad</a></li>
-                                    <li><a class="dropdown-item" href="#">Surat</a></li>
-                                    <li><a class="dropdown-item" href="#">Tokyo</a></li>
-                                    <li><a class="dropdown-item" href="#">Amsadam</a></li>
-                                    <li><a class="dropdown-item" href="#">Hydrabad</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Skills</label>
-                                <a class="nav-link p-2 border" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Select mission skills <i class="bi bi-chevron-down float-end"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Ahmdabad</a></li>
-                                    <li><a class="dropdown-item" href="#">Surat</a></li>
-                                    <li><a class="dropdown-item" href="#">Tokyo</a></li>
-                                    <li><a class="dropdown-item" href="#">Amsadam</a></li>
-                                    <li><a class="dropdown-item" href="#">Hydrabad</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Images</label>
-                                <div class="form-group files uploadImg">
-                                    <input type="file" name="" id="">
-                                </div>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="">Mission Documents</label>
-                                <div class="form-group files uploadDoc">
-                                    <input type="file" name="" id="">
-                                </div>
-                                <label class="fs-6">Allowed file types: PDF, Doc</label>
-                            </div>
-                            <div class="col-12 mt-3 mb-5">
-                                <label for="">Mission Availability</label>
-                                <a class="nav-link p-2 border" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Select availability <i class="bi bi-chevron-down float-end"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Ahmdabad</a></li>
-                                    <li><a class="dropdown-item" href="#">Surat</a></li>
-                                    <li><a class="dropdown-item" href="#">Tokyo</a></li>
-                                    <li><a class="dropdown-item" href="#">Amsadam</a></li>
-                                    <li><a class="dropdown-item" href="#">Hydrabad</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary rounded-pill"
-                        data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-outline-warning rounded-pill">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- #region Mission Header -->
     <div class="container-lg">
@@ -1111,10 +959,12 @@
     <!-- endregion Conainer main content -->
 
     <!-- #region Footer -->
-    <hr>
-    <div class="container-lg">
-        <div class="row mt-5 mb-4">
-            <a href="#" class="link-dark">Privacy Policy</a>
+    <div class="bottom-0">
+        <hr>
+        <div class="container-lg">
+            <div class="row mt-5 mb-4">
+                <a href="#" class="link-dark">Privacy Policy</a>
+            </div>
         </div>
     </div>
     <!-- endregion Footer -->

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -21,106 +21,78 @@
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-left: 0px;">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebarBG ps-lg-4">
+                <div
+                    class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sticky-top">
 
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start pt-4"
                         id="menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0 text-light">
+                        <li class="nav-item w-100">
+                            <a href="./user.html" class="nav-link align-middle text-light">
                                 <i class="bi bi-person-fill mr-3"></i> <span class="ms-1 d-none d-sm-inline">User</span>
                             </a>
                         </li>
                         <hr>
-                        <li class="nav-item">
-
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light">
+                        <li class="nav-item w-100">
+                            <a href="./cmsPolicy.html" class="nav-link align-middle text-light">
                                 <i class="bi bi-file-earmark-text-fill mr-3"></i> <span
-                                    class="ms-1 d-none d-sm-inline">CMS Pagea</span>
-                                <i class="bi bi-caret-down"></i></a>
-                            <ul class="collapse nav flex-column ms-1 ps-4" id="submenu1" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0 text-light"> <span
-                                            class="d-none d-sm-inline">Policy</span> 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0 text-light"> <span
-                                            class="d-none d-sm-inline">Carousel</span> 2
-                                    </a>
-                                </li>
-                            </ul>
+                                    class="ms-1 d-none d-sm-inline">CMS
+                                    Pagea</span>
+                            </a>
                         </li>
                         <hr>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0 text-light">
+                        <li class="nav-item w-100">
+                            <a href="./mission.html" class="nav-link align-middle  text-light">
                                 <i class="bi bi-bullseye mr-3"></i><span class="ms-1 d-none d-sm-inline">Mission</span>
                             </a>
                         </li>
                         <hr>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0 text-light">
+                        <li class="nav-item w-100">
+                            <a href="./missionTheme.html" class="nav-link align-middle text-light">
                                 <i class="bi bi-columns-gap mr-3"></i> <span class="ms-1 d-none d-sm-inline">
                                     Mission Theme</span>
                             </a>
                         </li>
                         <hr>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0 text-light">
+                        <li class="nav-item w-100">
+                            <a href="./missionSkill.html" class="nav-link align-middle text-light">
                                 <i class="bi bi-tools mr-3"></i> <span class="ms-1 d-none d-sm-inline">Mission
                                     Skills</span>
                             </a>
                         </li>
                         <hr>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0 text-light">
+                        <li class="nav-item w-100">
+                            <a href="./missionApplication.html" class="nav-link align-middle text-light">
                                 <i class="bi bi-files mr-3"></i> <span class="ms-1 d-none d-sm-inline">
                                     Mission Application</span>
                             </a>
                         </li>
                         <hr>
-                        <li class="nav-item">
-                            <a href="#story" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light">
-                                <i class="bi bi-journal-text mr-3"></i><span
-                                    class="ms-1 d-none d-sm-inline">Story</span>
-                                <i class="bi bi-caret-down"></i></a>
-                            <ul class="collapse nav flex-column ms-1 ps-4" id="story" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0 text-light"> <span class="d-none d-sm-inline">Story
-                                            List</span> 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0 text-light"> <span class="d-none d-sm-inline">Story
-                                            Application</span> 2
-                                    </a>
-                                </li>
-                            </ul>
-                            <a href="#" class="nav-link align-middle px-0 text-light">
-                                <span class="ms-1 d-none d-sm-inline"></span>
+                        <li class="nav-item w-100">
+                            <a href="./storyList.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-journal-text mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Story List</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./storyApplication.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-journal-text mr-3"></i><span class="ms-1 d-none d-sm-inline">
+                                    Story Application</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./bannerManagement.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-box mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Banner Managment</span>
                             </a>
                         </li>
 
                     </ul>
-                    <hr>
-                    <div class="dropdown pb-4">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
-                                class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">loser</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
 
@@ -131,10 +103,10 @@
 
                 <div style="margin-bottom: 70px;">
                     <span class="float-end">
-                        <button type="button" class="btn btn-outline-warning rounded-pill w-100">
+                        <a href="./addPolicy.html" class="btn btn-outline-warning rounded-pill w-100">
                             <i class="bi bi-plus"></i>
                             <span class="text-wrap">Add</span>
-                        </button>
+                        </a>
                     </span>
                 </div>
 

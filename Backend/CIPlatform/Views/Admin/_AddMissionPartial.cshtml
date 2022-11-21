@@ -1,0 +1,160 @@
+﻿@using CIPlatform.Models
+@model AddMissionModel
+
+
+<div class="modal fade" id="SubmitNewMission" tabindex="-1" aria-labelledby="SubmitNewMissionLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new Mission</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form id="modalForm" method="post" action="CreateMission" enctype="multipart/form-data">
+                        <div class="col-6">
+                            <label for="">Country</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">City</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Title</label>
+                            <input type="text" name="" class="form-control"
+                                   placeholder="Enter Mission Title" id="">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Description</label>
+                            <textarea name="" class="form-control" placeholder="Enter your message"
+                                      id="" cols="30" rows="4"></textarea>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Organisation Name</label>
+                            <input type="text" name="" class="form-control"
+                                   placeholder="Enter mission organisation name" id="">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Organisation Detail</label>
+                            <textarea name="" class="form-control" placeholder="Enter your message"
+                                      id="" cols="30" rows="4"></textarea>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Start Date</label>
+                            <input type="date" name="" class="form-control"
+                                   placeholder="Select start date" id="">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">End Date</label>
+                            <input type="date" name="" class="form-control"
+                                   placeholder="Select end date" id="">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Total seats</label>
+                            <input type="number" name="" class="form-control"
+                                   placeholder="Enter total seats" id="">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission registration deadline</label>
+                            <input type="date" name="" class="form-control"
+                                   placeholder="Enter mission registration deadline" id="">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Theme</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Skills</label>
+                            <div>
+                                <select id="skillSelect" class="rounded" multiple name="native-select"
+                                        style="width: 100% !important;" placeholder="Select Skills"
+                                        data-search="true" data-silent-initial-value-set="true">
+                                    <option value="1">Anthropology</option>
+                                    <option value="2">Archeology</option>
+                                    <option value="3">Astronomy</option>
+                                    <option value="3">Computer Science</option>
+                                    <option value="3">Environmental Science</option>
+                                    <option value="3">History</option>
+                                    <option value="3">Library Sciences</option>
+                                    <option value="3">Mathematics</option>
+                                    <option value="3">Music Theory</option>
+                                    <option value="3">Research</option>
+                                    <option value="3">Administrative Support</option>
+                                    <option value="3">Customer Service</option>
+                                    <option value="3">Data Entry</option>
+                                    <option value="3">Executive Admin</option>
+                                    <option value="3">Office Management</option>
+                                    <option value="3">Office Reception</option>
+                                    <option value="3">Program Management</option>
+                                    <option value="3">Transactions</option>
+                                    <option value="3">Agronomy</option>
+                                    <option value="3">Animal Care / Handling</option>
+                                    <option value="3">Animal Therapy</option>
+                                    <option value="3">Aquarium Maintenance</option>
+                                    <option value="3">Botany</option>
+                                    <option value="3">Environmental Education</option>
+                                    <option value="3">Environmental Policy</option>
+                                    <option value="3">Farming</option>
+                                </select>
+                            </div>
+                            <script src="https://cdn.jsdelivr.net/npm/virtual-select-plugin@1.0.33/dist/virtual-select.min.js"></script>
+                            <script>
+                                VirtualSelect.init({
+                                    ele: '#skillSelect'
+                                });
+                            </script>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Images</label>
+                            <div class="form-group files uploadImg">
+                                <input type="file" name="" id="">
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Mission Documents</label>
+                            <div class="form-group files uploadDoc">
+                                <input type="file" name="" id="">
+                            </div>
+                            <label class="fs-6">Allowed file types: PDF, Doc</label>
+                        </div>
+                        <div class="col-12 mt-3 mb-5">
+                            <label for="">Mission Availability</label>
+                           <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary rounded-pill"
+                        data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-outline-warning rounded-pill">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

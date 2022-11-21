@@ -405,3 +405,52 @@ a:active.link-dark { text-decoration: none; color:black; }
 .text-gray:hover{
   color: white !important;
 }
+
+.listLocation{
+  margin-top: -58%;
+  margin-right: 2.5%;
+  opacity: 0.6;
+}
+
+.listAddPeople{
+  margin-top: -17%;
+  margin-right: 2.5%;
+  opacity: 0.6;
+}
+
+.listLike{
+  margin-top: -28%;
+  margin-right: 2.5%;
+  opacity: 0.6;
+}
+
+.appliedbuttonlist{
+  position:absolute;
+  top: 15px;
+  left: -12px;
+  font-size: 13px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  color: white;
+  background-color: green;
+}
+
+.cardcontainerlist{
+  background-color: white;
+  transition: 0.3s;
+  box-shadow: 0 0 15px lightgray; 
+}
+
+.box1{
+  margin-top: -17px;
+  margin-left: 123px;
+}
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item:hover .nav-link{ color: rgb(0, 0, 0); }
+  .row .nav .nav-item:hover .nav-link{background-color: #fff; color:#f88634 !important; }
+}
+
+.sidebarBG{
+  background-color: #f88634;
+}
