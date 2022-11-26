@@ -7,6 +7,7 @@ namespace CIPlatform.DataModels
     {
         public Country()
         {
+            Cities = new HashSet<City>();
             Missions = new HashSet<Mission>();
             States = new HashSet<State>();
             Users = new HashSet<User>();
@@ -19,6 +20,7 @@ namespace CIPlatform.DataModels
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
 
+        public virtual ICollection<City> Cities { get; set; }
         public virtual ICollection<Mission> Missions { get; set; }
         public virtual ICollection<State> States { get; set; }
         public virtual ICollection<User> Users { get; set; }

@@ -1,0 +1,36 @@
+﻿@using CIPlatform.DataModels
+@model Theme
+
+<div class="modal fade" id="AddTheme">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Theme</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form id="modalForm" action="CreateTheme">
+                        <input asp-for="CreatedAt" hidden />
+                        <input asp-for="Status" hidden/>
+                        <input asp-for="ThemeId" hidden />
+                        <div class="col-12 mt-3">
+                            <label asp-for="Title">Title</label>
+                            <input type="text" name="Title" asp-for="Title" class="form-control"
+                                   placeholder="Enter Theme Title" id="">
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary rounded-pill"
+                        data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button" data-bs-save="modal" class="btn btn-outline-warning rounded-pill">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

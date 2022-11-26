@@ -9,60 +9,17 @@
 
 <div style="margin-bottom: 70px;">
     <span class="float-end">
-        <button type="button" class="btn btn-outline-warning rounded-pill w-100" data-bs-toggle="modal"
-                data-bs-target="#AddSkill">
+        <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
+                data-target="#AddSkill" data-url="@Url.Action("CreateSkill")">
             <i class="bi bi-plus"></i>
-            <span class="text-wrap">Add</span>
+            <span class="text-wrap">Add Skill</span>
         </button>
     </span>
 </div>
 
-<div class="modal fade" id="AddSkill" tabindex="-1" aria-labelledby="AddSkillLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Skill</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
+<div id="PlaceHolderHere"></div>
 
-                        <div class="col-12 mt-3">
-                            <label for="">Skill</label>
-                            <input type="text" name="" class="form-control" placeholder="Enter Skill"
-                                   id="">
-                        </div>
-
-                        <div class="col-12 mt-3">
-                            <label>Status</label>
-                            <div class="dropdown">
-                                <button class="form-control text-start" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                    Select Status <i class="bi bi-chevron-down float-end"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Active</a></li>
-                                    <li><a class="dropdown-item" href="#">InActive</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary rounded-pill"
-                        data-bs-dismiss="modal">
-                    Cancel
-                </button>
-                <button type="button" class="btn btn-outline-warning rounded-pill">Submit</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+<span class="text-danger">@TempData["ErrorMes"]</span>
 <table id="datatable" class="table table-borderless">
     <thead class="table-light text-primary">
         <tr>
@@ -74,49 +31,23 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>Anthropology</td>
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-pencil-square text-secondary"></i></td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Archeology</td>
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-pencil-square text-secondary"></i></td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Astronomy</td>
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-pencil-square text-secondary"></i></td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Computer Science</td>
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-pencil-square text-secondary"></i></td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Environmental Science</td>
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-pencil-square text-secondary"></i></td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>History</td>
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-pencil-square text-secondary"></i></td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-        </tr>
+        @foreach (var item in Model.skills)
+        {
+            <tr>
+                <td>@item.SkillId</td>
+                <td>@item.SkillName</td>
+                <td class="text-success fw-bold"><button class="btn text-success fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeSkillStatus", "Admin" ,new {id = @item.SkillId})' } ">@(@item.Status==1 ? "Active":"Not Active")</button></td>
+                <td>
+                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddSkill" data-url="@Url.Action($"EditSkill?id={@item.SkillId}")">
+                        <i class="bi bi-pencil-square text-secondary"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteSkill", "Admin" ,new {id = @item.SkillId})' } ">
+                        <i class="bi bi-trash text-danger"></i>
+                    </button>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

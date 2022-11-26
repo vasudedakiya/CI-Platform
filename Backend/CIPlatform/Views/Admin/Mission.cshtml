@@ -19,8 +19,6 @@
 
 <div id="PlaceHolderHere"></div>
 
-
-
 <span class="text-danger">@TempData["ErrorMes"]</span>
 <table id="datatable" class="table table-borderless">
     <thead class="table-light text-primary">
@@ -33,186 +31,27 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>Jhon doe do xyz abc</td>
 
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>smae ahfd asbhe shsau</td>
+        @foreach (var item in Model.missions)
+        {
+            <tr>
+                <td>@item.MissionId</td>
+                <td>@item.Title</td>
+                <td class="text-success fw-bold"><button class="btn text-success fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeMissionStatus", "Admin" ,new {id = @item.MissionId})' } ">@(@item.Status==1 ? "Active":"Not Active")</button></td>
+                <td>
+                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddCarousel" data-url="@Url.Action($"EditMission?id={@item.MissionId}")">
+                        <i class="bi bi-pencil-square text-secondary"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteMission", "Admin" ,new {id = @item.MissionId})' } ">
+                        <i class="bi bi-trash text-danger"></i>
+                    </button>
+                </td>
+            </tr>
+        }
 
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Jhon doe3dude oahhwfna ytcdayc</td>
 
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Jhon doe4yasbyudiz</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Jhon doe5redixweb</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>Jhon doe do xyz abc</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>smae ahfd asbhe shsau</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>Jhon doe3dude oahhwfna ytcdayc</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>Jhon doe4yasbyudiz</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>Jhon doe5redixweb</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>11</td>
-            <td>Jhon doe do xyz abc</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>12</td>
-            <td>smae ahfd asbhe shsau</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>13</td>
-            <td>Jhon doe3dude oahhwfna ytcdayc</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>14</td>
-            <td>Jhon doe4yasbyudiz</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td>Jhon doe5redixweb</td>
-
-            <td class="text-success fw-bold">Active</td>
-            <td><i class="bi bi-trash text-danger"></i></td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
-                    <span class="text-wrap">view</span>
-                </button>
-            </td>
-        </tr>
 
 
     </tbody>

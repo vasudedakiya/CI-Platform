@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Images\Banner\" />
+    <Folder Include="wwwroot\Images\MissionMedia\" />
+    <Folder Include="wwwroot\Images\MissionDocument\" />
   </ItemGroup>
 
 </Project>

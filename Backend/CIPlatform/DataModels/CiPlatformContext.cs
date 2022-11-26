@@ -131,6 +131,8 @@ namespace CIPlatform.DataModels
 
                 entity.Property(e => e.CityId).HasColumnName("city_id");
 
+                entity.Property(e => e.CountryId).HasColumnName("country_id");
+
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasColumnName("created_at")
@@ -150,9 +152,16 @@ namespace CIPlatform.DataModels
                     .HasColumnType("datetime")
                     .HasColumnName("updated_at");
 
+                entity.HasOne(d => d.Country)
+                    .WithMany(p => p.Cities)
+                    .HasForeignKey(d => d.CountryId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_city_country");
+
                 entity.HasOne(d => d.State)
                     .WithMany(p => p.Cities)
                     .HasForeignKey(d => d.StateId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_city_state");
             });
 
@@ -342,6 +351,10 @@ namespace CIPlatform.DataModels
                     .HasColumnType("datetime")
                     .HasColumnName("created_at")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Deadline)
+                    .HasColumnType("datetime")
+                    .HasColumnName("deadline");
 
                 entity.Property(e => e.DeletedAt)
                     .HasColumnType("datetime")

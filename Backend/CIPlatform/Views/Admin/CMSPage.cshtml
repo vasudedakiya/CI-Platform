@@ -9,7 +9,7 @@
 
 <div style="margin-bottom: 70px;">
     <span class="float-end">
-        <a href="./addPolicy.html" class="btn btn-outline-warning rounded-pill w-100">
+        <a asp-controller="Admin" asp-action="AddCMSPage" class="btn btn-outline-warning rounded-pill w-100">
             <i class="bi bi-plus"></i>
             <span class="text-wrap">Add</span>
         </a>
@@ -32,14 +32,14 @@
             <tr>
                 <td>@item.CmsPageId</td>
                 <td>@item.Title</td>
-                <td class="text-success fw-bold">@(@item.Status==1 ? "Active":"Not Active")</td>
+                <td class="text-success fw-bold"><button class="btn text-success fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeCMSStatus", "Admin" ,new {id = @item.CmsPageId})' } ">@(@item.Status==1 ? "Active":"Not Active")</button></td>
                 <td>
-                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddCarousel" data-url="@Url.Action($"EditBanner?id={@item.CmsPageId}")" >
+                    <a  class="btn" asp-controller="Admin" asp-action="AddCMSPage" asp-route-id=@item.CmsPageId >
                         <i class="bi bi-pencil-square text-secondary"></i>
-                    </button>
+                    </a>
                 </td>
                 <td>
-                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteBanner", "Admin" ,new {id = @item.CmsPageId})' } ">
+                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteCMS", "Admin" ,new {id = @item.CmsPageId})' } ">
                         <i class="bi bi-trash text-danger"></i>
                     </button>
                 </td>

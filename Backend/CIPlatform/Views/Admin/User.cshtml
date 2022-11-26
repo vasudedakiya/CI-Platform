@@ -9,9 +9,14 @@
 <div style="margin-bottom: 70px;">
     <span class="float-end">
         <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
-                data-target="#AddUser" data-url="@Url.Action("CreateAdmin")">
+                data-target="#AddAdmin" data-url="@Url.Action("CreateAdmin")">
             <i class="bi bi-plus"></i>
             <span class="text-wrap">Add Admin</span>
+        </button>
+        <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
+                data-target="#AddUser" data-url="@Url.Action("CreateUser")">
+            <i class="bi bi-plus"></i>
+            <span class="text-wrap">Add User</span>
         </button>
     </span>
 </div>
@@ -28,7 +33,7 @@
             <th>Email</th>
             <th>Create at</th>
             <th>Status</th>
-
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -40,7 +45,14 @@
                 <td>@item.FirstName &nbsp; @item.LastName</td>
                 <td>@item.Email</td>
                 <td>@item.CreatedAt</td>
-                <td class="text-success fw-bold">@(@item.Status==1 ? "Active":"Not Active")</td>
+                <td class="text-success fw-bold">
+                    <button class="btn text-success fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeUserStatus", "Admin" ,new {id = @item.UserId})' } ">@(@item.Status==1 ? "Active":"Not Active")</button>
+                </td>
+                <td>
+                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddUser" data-url="@Url.Action($"EditUser?id={@item.UserId}")">
+                        <i class="bi bi-pencil-square text-secondary"></i>
+                    </button>
+                </td>
                 <td>
                     <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteUser", "Admin" ,new {id = @item.UserId})' } ">
                         <i class="bi bi-trash text-danger"></i>

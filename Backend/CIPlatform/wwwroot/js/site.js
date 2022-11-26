@@ -26,7 +26,7 @@
             success: function (data) {
                 PlaceHolderElement.find('.modal').modal('hide');
             }
-            
+
         })
         PlaceHolderElement.find('.modal').modal('hide');
     })
@@ -43,3 +43,4 @@ function Validate() {
     }
     return true;
 }
+
