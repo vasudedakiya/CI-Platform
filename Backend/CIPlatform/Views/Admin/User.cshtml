@@ -46,7 +46,9 @@
                 <td>@item.Email</td>
                 <td>@item.CreatedAt</td>
                 <td class="text-success fw-bold">
-                    <button class="btn text-success fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeUserStatus", "Admin" ,new {id = @item.UserId})' } ">@(@item.Status==1 ? "Active":"Not Active")</button>
+                    <button class="btn @(@item.Status==1 ?"text-success":"text-danger") fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeUserStatus", "Admin" ,new {id = @item.UserId})' } ">
+                        @(@item.Status==1 ? "Active":"Inactive")
+                    </button>
                 </td>
                 <td>
                     <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddUser" data-url="@Url.Action($"EditUser?id={@item.UserId}")">

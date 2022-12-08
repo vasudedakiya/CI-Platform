@@ -29,8 +29,9 @@ namespace CIPlatform.DataModels
         public string? Description { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public int MissionType { get; set; }
         public DateTime? Deadline { get; set; }
+        public int MissionType { get; set; }
+        public int? TotalSeat { get; set; }
         public int Status { get; set; }
         public string? OrganizationName { get; set; }
         public string? OrganizationDetail { get; set; }

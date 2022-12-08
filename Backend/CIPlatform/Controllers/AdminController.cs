@@ -264,64 +264,64 @@ namespace CIPlatform.Controllers
 
         #region Mission Add
 
-        #region Add Mission GET
-        [HttpGet]
-        public IActionResult CreateMission()
-        {
-            AddMissionModel mission = new AddMissionModel();
-
-            #region Fill Country Drop-down
-            List<SelectListItem> list = new List<SelectListItem>();
-            var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-            foreach (var item in temp)
+            #region Add Mission GET
+            [HttpGet]
+            public IActionResult CreateMission()
             {
-                list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
-            }
-            mission.countrys = list;
-            #endregion Fill Country Drop-down
+                AddMissionModel mission = new AddMissionModel();
 
-            #region Fill Theme Drop-down
-            List<SelectListItem> list1 = new List<SelectListItem>();
-            var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-            foreach (var item in temp1)
+                #region Fill Country Drop-down
+                List<SelectListItem> list = new List<SelectListItem>();
+                var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+                foreach (var item in temp)
+                {
+                    list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
+                }
+                mission.countrys = list;
+                #endregion Fill Country Drop-down
+
+                #region Fill Theme Drop-down
+                List<SelectListItem> list1 = new List<SelectListItem>();
+                var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+                foreach (var item in temp1)
+                {
+                    list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
+                }
+                mission.themes = list1;
+                #endregion Fill Theme Drop-down
+
+                #region Fill Skill Drop-Down
+                List<SelectListItem> list2 = new List<SelectListItem>();
+                var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+                foreach (var item in temp2)
+                {
+                    list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
+                }
+                mission.skills = list2;
+                #endregion Fill Skill Drop-Down
+
+                return PartialView("_AddMissionPartial", mission);
+            }
+            #endregion Add Mission GET
+
+            #region Fill City Drop-down
+            [HttpPost]
+            public JsonResult GetCity(int id)
             {
-                list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
+                AddMissionModel mission = new AddMissionModel();
+                List<SelectListItem> list = new List<SelectListItem>();
+
+                var temp = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == id).AsEnumerable().ToList();
+                foreach (var item in temp)
+                {
+                    list.Add(new SelectListItem() { Text = item.Name, Value = item.CityId.ToString() });
+                }
+                mission.citys = list;
+                return Json(mission.citys);
             }
-            mission.themes = list1;
-            #endregion Fill Theme Drop-down
+            #endregion Fill City Drop-down
 
-            #region Fill Skill Drop-Down
-            List<SelectListItem> list2 = new List<SelectListItem>();
-            var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-            foreach (var item in temp2)
-            {
-                list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
-            }
-            mission.skills = list2;
-            #endregion Fill Skill Drop-Down
-
-            return PartialView("_AddMissionPartial", mission);
-        }
-        #endregion Add Mission GET
-
-        #region Fill City Drop-down
-        [HttpPost]
-        public JsonResult GetCity(int id)
-        {
-            AddMissionModel mission = new AddMissionModel();
-            List<SelectListItem> list = new List<SelectListItem>();
-
-            var temp = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == id).AsEnumerable().ToList();
-            foreach (var item in temp)
-            {
-                list.Add(new SelectListItem() { Text = item.Name, Value = item.CityId.ToString() });
-            }
-            mission.citys = list;
-            return Json(mission.citys);
-        }
-        #endregion Fill City Drop-down
-
-        #region Add Mission POST
+            #region Add Mission POST
         [HttpPost]
         public IActionResult CreateMission(AddMissionModel model, List<IFormFile> imgsFiles, List<IFormFile> docFiles)
         {
@@ -411,63 +411,63 @@ namespace CIPlatform.Controllers
 
         #region Mission Edit 
 
-        #region Edit Mission GET
-        [HttpGet]
-        public IActionResult EditMission(int id)
-        {
-            AddMissionModel mission = new AddMissionModel();
-
-            mission.mission = _db.Missions.FirstOrDefault(x => x.MissionId == id);
-
-            mission.goalMission = _db.GoalMissions.FirstOrDefault(x => x.MissionId == mission.mission.MissionId);
-
-            mission.addSkill = _db.MissionSkills.Where(s => s.MissionId == mission.mission.MissionId).Select(x => x.SkillId.ToString()).ToList();
-
-            #region Fill Country Drop-down
-            List<SelectListItem> list = new List<SelectListItem>();
-            var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-            foreach (var item in temp)
+            #region Edit Mission GET
+            [HttpGet]
+            public IActionResult EditMission(int id)
             {
-                list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
+                AddMissionModel mission = new AddMissionModel();
+
+                mission.mission = _db.Missions.FirstOrDefault(x => x.MissionId == id);
+
+                mission.goalMission = _db.GoalMissions.FirstOrDefault(x => x.MissionId == mission.mission.MissionId);
+
+                mission.addSkill = _db.MissionSkills.Where(s => s.MissionId == mission.mission.MissionId).Select(x => x.SkillId.ToString()).ToList();
+
+                #region Fill Country Drop-down
+                List<SelectListItem> list = new List<SelectListItem>();
+                var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+                foreach (var item in temp)
+                {
+                    list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
+                }
+                mission.countrys = list;
+                #endregion Fill Country Drop-down
+
+                #region Fill City Drop-down
+                List<SelectListItem> list3 = new List<SelectListItem>();
+                var temp3 = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == mission.mission.CountryId).AsEnumerable().ToList();
+                foreach (var item in temp3)
+                {
+                    list3.Add(new SelectListItem() { Text = item.Name, Value = item.CityId.ToString() });
+                }
+                mission.citys = list3;
+                #endregion Fill City Drop-down
+
+                #region Fill Theme Drop-down
+                List<SelectListItem> list1 = new List<SelectListItem>();
+                var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+                foreach (var item in temp1)
+                {
+                    list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
+                }
+                mission.themes = list1;
+                #endregion Fill Theme Drop-down
+
+                #region Fill Skill Drop-Down
+                List<SelectListItem> list2 = new List<SelectListItem>();
+                var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+                foreach (var item in temp2)
+                {
+                    list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
+                }
+                mission.skills = list2;
+                #endregion Fill Skill Drop-Down
+
+                return PartialView("_AddMissionPartial", mission);
             }
-            mission.countrys = list;
-            #endregion Fill Country Drop-down
+            #endregion Edit Mission GET
 
-            #region Fill City Drop-down
-            List<SelectListItem> list3 = new List<SelectListItem>();
-            var temp3 = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == mission.mission.CountryId).AsEnumerable().ToList();
-            foreach (var item in temp3)
-            {
-                list3.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
-            }
-            mission.citys = list3;
-            #endregion Fill City Drop-down
-
-            #region Fill Theme Drop-down
-            List<SelectListItem> list1 = new List<SelectListItem>();
-            var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-            foreach (var item in temp1)
-            {
-                list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
-            }
-            mission.themes = list1;
-            #endregion Fill Theme Drop-down
-
-            #region Fill Skill Drop-Down
-            List<SelectListItem> list2 = new List<SelectListItem>();
-            var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-            foreach (var item in temp2)
-            {
-                list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
-            }
-            mission.skills = list2;
-            #endregion Fill Skill Drop-Down
-
-            return PartialView("_AddMissionPartial", mission);
-        }
-        #endregion Edit Mission GET
-
-        #region Edit Mission POST
+            #region Edit Mission POST
         [HttpPost]
         public IActionResult EditMission(AddMissionModel model, List<IFormFile> imgsFiles, List<IFormFile> docFiles)
         {
@@ -848,6 +848,7 @@ namespace CIPlatform.Controllers
             var model = new AdminModel();
             model.users = _db.Users.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
             model.stories = _db.Stories.Where(x => x.Status == 1 && x.DeletedAt == null).AsEnumerable().ToList();
+            model.missions  = _db.Missions.Where(x=>x.DeletedAt == null).AsEnumerable().ToList();
             return View(model);
         }
         #endregion Story List DataTable
@@ -1003,5 +1004,15 @@ namespace CIPlatform.Controllers
 
         }
         #endregion saveImg
+
+        #region Logout
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("UserId");
+            HttpContext.Session.Remove("UserName");
+
+            return RedirectToAction("Login", "Login");
+        }
+        #endregion Logout
     }
 }

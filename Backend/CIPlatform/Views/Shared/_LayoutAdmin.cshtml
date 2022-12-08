@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/virtual-select-plugin@1.0.33/dist/virtual-select.min.css">
+    <link rel="stylesheet" href="~/css/VirtualSelect.css" asp-append-version="true" />
+    
 
 </head>
 <body>
@@ -116,9 +117,8 @@
                                         <span class="d-none d-sm-inline text-dark mx-1">Vasu</span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        @*<li><a class="dropdown-item" asp-controller="Mission" asp-action="MissionListing">Goto Site</a></li>*@
+                                        <li><a class="dropdown-item" asp-controller="Admin" asp-action="Logout" >Logout</a></li>
                                     </ul>
                                 </li>
                             </ul>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "F3NvAaACCSOBESbFTxDzobEfQnrMEFUccalHZ+OopGw=",
+  "Hash": "0IKpsUUr2vp0O4wMWH0gHpNSJXldWh0Ig75VA0x+H0U=",
   "Source": "CIPlatform",
   "BasePath": "_content/CIPlatform",
   "Mode": "Default",
@@ -459,6 +459,23 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\css\\VirtualSelect.css",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "css/VirtualSelect.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\VirtualSelect.css"
+    },
+    {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\favicon.ico",
       "SourceId": "CIPlatform",
       "SourceType": "Discovered",
@@ -527,6 +544,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\Banner\\f72b4e2f-10db-4406-8e2f-0311f97da422.jpg"
     },
     {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionDocument\\12ad5eb5-39ea-4be9-951d-035b6c514a64.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionDocument/12ad5eb5-39ea-4be9-951d-035b6c514a64.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionDocument\\12ad5eb5-39ea-4be9-951d-035b6c514a64.jpg"
+    },
+    {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionDocument\\2516e4f5-fe5c-4e74-a079-7fb8b45c926b.pdf",
       "SourceId": "CIPlatform",
       "SourceType": "Discovered",
@@ -542,6 +576,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\MissionDocument\\2516e4f5-fe5c-4e74-a079-7fb8b45c926b.pdf"
+    },
+    {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionDocument\\344d73e4-6f2b-4cc2-bb1a-e665a26bd4c9.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionDocument/344d73e4-6f2b-4cc2-bb1a-e665a26bd4c9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionDocument\\344d73e4-6f2b-4cc2-bb1a-e665a26bd4c9.jpg"
     },
     {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionDocument\\375e7d75-119a-464b-beda-8ef7a502879a.pdf",
@@ -578,6 +629,40 @@
       "OriginalItemSpec": "wwwroot\\Images\\MissionDocument\\47487e01-056d-4fde-b246-c7d6957e1fd6.pdf"
     },
     {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionDocument\\56557742-3bac-4fb5-b935-448078abc319.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionDocument/56557742-3bac-4fb5-b935-448078abc319.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionDocument\\56557742-3bac-4fb5-b935-448078abc319.jpg"
+    },
+    {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionDocument\\78478ab4-687c-4763-a470-193883bc3783.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionDocument/78478ab4-687c-4763-a470-193883bc3783.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionDocument\\78478ab4-687c-4763-a470-193883bc3783.jpg"
+    },
+    {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionDocument\\8f1533db-0a5d-4dc1-9715-e3ec8aae0c86.pdf",
       "SourceId": "CIPlatform",
       "SourceType": "Discovered",
@@ -612,6 +697,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\MissionDocument\\feae7130-f95a-4f9e-8cb2-1bdf1cc028c3.pdf"
     },
     {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\15216067-1cd4-431f-9592-54d8bd1ada99.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionMedia/15216067-1cd4-431f-9592-54d8bd1ada99.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\15216067-1cd4-431f-9592-54d8bd1ada99.jpg"
+    },
+    {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\16e8efc8-a94b-4841-8894-b7a2bc068c14.png",
       "SourceId": "CIPlatform",
       "SourceType": "Discovered",
@@ -629,6 +731,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\16e8efc8-a94b-4841-8894-b7a2bc068c14.png"
     },
     {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\30248a9b-569a-4471-939f-d13a16d793b5.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionMedia/30248a9b-569a-4471-939f-d13a16d793b5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\30248a9b-569a-4471-939f-d13a16d793b5.jpg"
+    },
+    {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\41a2fc61-67c3-4d6c-bcc7-e32d6b28e85c.png",
       "SourceId": "CIPlatform",
       "SourceType": "Discovered",
@@ -644,6 +763,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\41a2fc61-67c3-4d6c-bcc7-e32d6b28e85c.png"
+    },
+    {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\68b2e202-b549-4ad3-b74a-600494684a9f.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionMedia/68b2e202-b549-4ad3-b74a-600494684a9f.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\68b2e202-b549-4ad3-b74a-600494684a9f.jpg"
+    },
+    {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\7ef8b544-1758-4526-b510-28bbb3843796.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionMedia/7ef8b544-1758-4526-b510-28bbb3843796.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\7ef8b544-1758-4526-b510-28bbb3843796.jpg"
     },
     {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\804d7d2b-5dea-45d3-949f-11840f25d81c.jpg",
@@ -697,6 +850,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\c85d5625-da06-4cc2-8716-d3df46db4025.jpg"
     },
     {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\Images\\MissionMedia\\e61382b8-06eb-44de-bfca-b532fb619f25.jpg",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "Images/MissionMedia/e61382b8-06eb-44de-bfca-b532fb619f25.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MissionMedia\\e61382b8-06eb-44de-bfca-b532fb619f25.jpg"
+    },
+    {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\js\\popper.min.js",
       "SourceId": "CIPlatform",
       "SourceType": "Discovered",
@@ -729,6 +899,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\js\\vertuleSelect.js",
+      "SourceId": "CIPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\",
+      "BasePath": "_content/CIPlatform",
+      "RelativePath": "js/vertuleSelect.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\vertuleSelect.js"
     },
     {
       "Identity": "D:\\Traning\\Project\\CI PLateform\\Backend\\CIPlatform\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

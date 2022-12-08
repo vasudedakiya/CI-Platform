@@ -35,6 +35,8 @@ namespace CIPlatform.Controllers
                 {
                     HttpContext.Session.SetString("UserId", admin.AdminId.ToString());
                     HttpContext.Session.SetString("UserName", admin.FirstName.ToString());
+                    HttpContext.Session.SetString("Role", "1");
+
                     return RedirectToAction("User", "Admin");
                 }
                 #endregion Check Admin
@@ -56,13 +58,15 @@ namespace CIPlatform.Controllers
                 return View(loginModel);
             }
             #endregion Check User Deactivated
-
+           
             #region Store Info in session
             HttpContext.Session.SetString("UserId", user.UserId.ToString());
             HttpContext.Session.SetString("UserName", user.FirstName.ToString());
+            HttpContext.Session.SetString("Role", "0");
+
             #endregion Store Info in session
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("MissionListing", "Mission");
         }
 
         #endregion Login

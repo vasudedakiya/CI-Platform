@@ -12,7 +12,7 @@
         <tr>
             <th>Story ID</th>
             <th>Story Title</th>
-            <th>User Id</th>
+            <th>Mission</th>
             <th>User Name</th>
             <th></th>
             <th></th>
@@ -24,11 +24,11 @@
             <tr>
                 <td>@item.StoryId</td>
                 <td>@item.Title</td>
-                <td>@item.UserId</td>
+                <td>@item.Mission.Title</td>
                 <td>@item.User.FirstName &nbsp; @item.User.LastName</td>
                 <td>
                     <button class="btn" onclick=" if (confirm('Are You want to delete application?')) { return location.href=' @Url.Action("DeleteStory", "Admin" ,new {id = @item.StoryId})' } ">
-                        <i class="bi bi-x-circle text-danger"></i>
+                        <i class="bi bi-trash text-danger"></i>
                     </button>
                 </td>
                 <td>

@@ -10,7 +10,7 @@
 <div style="margin-bottom: 70px;">
     <span class="float-end">
         <button type="button" class="btn btn-outline-warning rounded-pill w-100" data-toggle="ajax-modal"
-                data-target="#AddTheme"  data-url="@Url.Action("CreateTheme")">
+                data-target="#AddTheme" data-url="@Url.Action("CreateTheme")">
             <i class="bi bi-plus"></i>
             <span class="text-wrap">Add</span>
         </button>
@@ -38,9 +38,13 @@
             <tr>
                 <td>@item.ThemeId</td>
                 <td>@item.Title</td>
-                <td class="text-success fw-bold"><button class="btn text-success fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeThemeStatus", "Admin" ,new {id = @item.ThemeId})' } ">@(@item.Status==1 ? "Active":"Not Active")</button></td>
+                <td class="text-success fw-bold">
+                    <button class="btn @(@item.Status==1 ?"text-success":"text-danger") fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeThemeStatus", "Admin" ,new {id = @item.ThemeId})' } ">
+                        @(@item.Status==1 ? "Active":"Inactive")
+                    </button>
+                </td>
                 <td>
-                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddTheme" data-url="@Url.Action($"EditTheme?id={@item.ThemeId}")" >
+                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddTheme" data-url="@Url.Action($"EditTheme?id={@item.ThemeId}")">
                         <i class="bi bi-pencil-square text-secondary"></i>
                     </button>
                 </td>
@@ -51,6 +55,6 @@
                 </td>
             </tr>
         }
-       
+
     </tbody>
 </table>

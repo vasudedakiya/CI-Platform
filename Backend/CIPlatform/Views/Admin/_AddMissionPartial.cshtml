@@ -35,7 +35,7 @@
         });
 
 
-    $("#ddlMissionType").change(function(){
+        $("#ddlMissionType").change(function(){
             value = $(this).val();
             if(value == 1){
                 $("#timeMission").show();
@@ -53,23 +53,35 @@
 
 @if (Model.mission != null && Model.mission.MissionType == 2)
 {
-     <script>
-         setTimeout(function(){ $("#goalMission").show(); }, 1000);
-    </script>
-
+         <script>
+             setTimeout(function(){ $("#goalMission").show(); }, 1000);
+        </script>
 }
 else if (Model.mission != null)
 {
-    <script>
-        setTimeout(function(){ $("#timeMission").show(); }, 1000);
-    </script>
+        <script>
+            setTimeout(function(){ $("#timeMission").show(); }, 1000);
+        </script>
 
 }
+
+<style>
+.vscomp-toggle-button {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    padding: 7px 30px 7px 10px;
+    position: relative;
+    width: 100%;
+}
+</style>
 <div class="modal fade" id="SubmitNewMission" tabindex="-1" aria-labelledby="SubmitNewMissionLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">@(Model.mission.MissionId == 0 ? "Add new" : "Edit") Mission</h5>
+                <h5 class="modal-title" id="exampleModalLabel">@(Model.mission == null ? "Add New" : "Edit") Mission</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
             </div>
@@ -78,6 +90,7 @@ else if (Model.mission != null)
                     <form id="modalForm" method="post" action="CreateMission" enctype="multipart/form-data">
                         <input asp-for="mission.MissionId" hidden />
                         <input asp-for="mission.CreatedAt" hidden />
+                        <input asp-for="mission.Status" hidden />
                         <div class="col-12 mt-3">
                             <label for="">Country</label>
                             <select class="form-select" id="ddlCountry" asp-for="mission.CountryId" asp-items="@Model.countrys" aria-label="Default select example">
@@ -121,6 +134,12 @@ else if (Model.mission != null)
                         </div>
 
                         <div class="col-12 mt-3">
+                                <label asp-for="mission.TotalSeat">Total seats</label>
+                                <input type="number" name="mission.TotalSeat" asp-for="mission.TotalSeat" class="form-control"
+                                       placeholder="Enter total seats" id="">
+                            </div>
+
+                        <div class="col-12 mt-3">
                             <label asp-for="mission.OrganizationName">Mission Organisation Name</label>
                             <input type="text" name="mission.OrganizationName" asp-for="mission.OrganizationName" class="form-control"
                                    placeholder="Enter mission organisation name" id="">
@@ -152,9 +171,9 @@ else if (Model.mission != null)
 
                         <span id="goalMission">
                             <div class="col-12 mt-3">
-                                <label asp-for="goalMission.GoalValue">Total seats</label>
+                                <label asp-for="goalMission.GoalValue">Goal Value</label>
                                 <input type="number" name="goalMission.GoalValue" asp-for="goalMission.GoalValue" class="form-control"
-                                       placeholder="Enter total seats" id="">
+                                       placeholder="Enter Goal Value" id="">
                             </div>
                             <div class="col-12 mt-3">
                                 <label asp-for="goalMission.GoalObjectiveText">Goal Objective</label>

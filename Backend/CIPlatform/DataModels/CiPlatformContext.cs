@@ -207,6 +207,10 @@ namespace CIPlatform.DataModels
 
                 entity.Property(e => e.ApprovalStatus).HasColumnName("approval_status");
 
+                entity.Property(e => e.CommentText)
+                    .HasMaxLength(250)
+                    .HasColumnName("comment_text");
+
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasColumnName("created_at")
@@ -393,6 +397,8 @@ namespace CIPlatform.DataModels
                 entity.Property(e => e.Title)
                     .HasMaxLength(128)
                     .HasColumnName("title");
+
+                entity.Property(e => e.TotalSeat).HasColumnName("total_seat");
 
                 entity.Property(e => e.UpdatedAt)
                     .HasColumnType("datetime")

@@ -6,6 +6,7 @@ namespace CIPlatform.DataModels
     public partial class Comment
     {
         public long CommentId { get; set; }
+        public string CommentText { get; set; } = null!;
         public long UserId { get; set; }
         public long MissionId { get; set; }
         public int ApprovalStatus { get; set; }

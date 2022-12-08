@@ -34,6 +34,13 @@
     }
 }
 
+.home-card-img {
+    border-top-left-radius: var(--bs-card-inner-border-radius);
+    border-top-right-radius: var(--bs-card-inner-border-radius);
+    height: 190px;
+    object-fit: cover;
+}
+
 .customshadow {
     height: 56px;
 }
