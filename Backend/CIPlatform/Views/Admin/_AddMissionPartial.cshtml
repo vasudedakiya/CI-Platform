@@ -93,38 +93,38 @@ else if (Model.mission != null)
                         <input asp-for="mission.Status" hidden />
                         <div class="col-12 mt-3">
                             <label for="">Country</label>
-                            <select class="form-select" id="ddlCountry" asp-for="mission.CountryId" asp-items="@Model.countrys" aria-label="Default select example">
+                            <select class="form-select" id="ddlCountry" asp-for="mission.CountryId" required="" asp-items="@Model.countrys" aria-label="Default select example">
                                 <option selected>Select Country</option>
                             </select>
                             <span asp-validation-for="mission.CountryId" class="text-danger"></span>
                         </div>
                         <div class="col-12 mt-3">
                             <label for="">City</label>
-                            <select class="form-select" id="ddlCity" asp-for="mission.CityId" asp-items="@Model.citys" aria-label="Default select example">
+                            <select class="form-select" id="ddlCity" asp-for="mission.CityId" required="" asp-items="@Model.citys" aria-label="Default select example">
                             </select>
                             <span asp-validation-for="mission.CityId" class="text-danger"></span>
                         </div>
 
                         <div class="col-12 mt-3">
                             <label asp-for="mission.Title">Mission Title</label>
-                            <input type="text" name="mission.Title" asp-for="mission.Title" class="form-control"
+                            <input type="text" name="mission.Title" required="" asp-for="mission.Title" class="form-control"
                                    placeholder="Enter Mission Title" id="">
                             <span asp-validation-for="mission.Title" class="text-danger"></span>
                         </div>
                         <div class="col-12 mt-3">
                             <label asp-for="mission.ShortDescription">Mission Sort Description</label>
-                            <textarea name="mission.ShortDescription" asp-for="mission.ShortDescription" class="form-control" placeholder="Enter your message"
+                            <textarea name="mission.ShortDescription" required="" asp-for="mission.ShortDescription" class="form-control" placeholder="Enter your message"
                                       id="" cols="30" rows="4"></textarea>
                         </div>
                         <div class="col-12 mt-3">
                             <label asp-for="mission.Description">Mission Description</label>
-                            <textarea name="mission.Description" asp-for="mission.Description" class="form-control" placeholder="Enter your message"
+                            <textarea name="mission.Description" required="" asp-for="mission.Description" class="form-control" placeholder="Enter your message"
                                       id="" cols="30" rows="4"></textarea>
                         </div>
 
                         <div class="col-12 mt-3">
                             <label asp-for="mission.MissionType">Mission Type</label>
-                            <select id="ddlMissionType" asp-for="mission.MissionType" class="form-select" aria-label="Default select example">
+                            <select id="ddlMissionType" asp-for="mission.MissionType" required="" class="form-select" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                                 <option value="1">Time</option>
                                 <option value="2">Goal</option>
@@ -183,7 +183,7 @@ else if (Model.mission != null)
                         </span>
                         <div class="col-12 mt-3">
                             <label asp-for="mission.ThemeId">Mission Theme</label>
-                            <select class="form-select" asp-for="mission.ThemeId" asp-items="@Model.themes" aria-label="Default select example">
+                            <select class="form-select" asp-for="mission.ThemeId" required="" asp-items="@Model.themes" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                             </select>
                             <span asp-validation-for="mission.ThemeId" class="text-danger"></span>
@@ -191,7 +191,7 @@ else if (Model.mission != null)
                         <div class="col-12 mt-3">
                             <label asp-for="addSkill">Mission Skills</label>
                             <div>
-                                <select id="skillSelect" class="rounded" asp-for="addSkill" multiple asp-items="@Model.skills"
+                                <select id="skillSelect" class="rounded" required="" asp-for="addSkill" multiple asp-items="@Model.skills"
                                         placeholder="Select Skills"
                                         data-search="true" data-silent-initial-value-set="true">
                                 </select>
@@ -213,7 +213,7 @@ else if (Model.mission != null)
                         </div>
                         <div class="col-12 mt-3 mb-5">
                             <label asp-for="mission.Availability">Mission Availability</label>
-                            <select class="form-select" asp-for="mission.Availability" aria-label="Default select example">
+                            <select class="form-select" asp-for="mission.Availability" required="" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                                 <option value="1">daily</option>
                                 <option value="2">weekly</option>

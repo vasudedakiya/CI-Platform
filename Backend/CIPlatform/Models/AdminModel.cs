@@ -4,7 +4,7 @@ namespace CIPlatform.Models
 {
     public class AdminModel
     {
-
+       
         public List<User>? users { get; set; }
 
         public List<CmsPage>? cmsPages { get; set; }

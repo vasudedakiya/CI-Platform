@@ -22,5 +22,7 @@ namespace CIPlatform.Models
 
         public string country { get; set; }
 
+        public float? avgRateing { get; set; }
+
     }
 }

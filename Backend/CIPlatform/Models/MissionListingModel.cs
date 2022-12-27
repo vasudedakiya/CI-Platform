@@ -15,5 +15,7 @@ namespace CIPlatform.Models
 
         public List<SelectListItem> skills { get; set; }
 
+        public int? TotalMission { get; set; }
+
     }
 }

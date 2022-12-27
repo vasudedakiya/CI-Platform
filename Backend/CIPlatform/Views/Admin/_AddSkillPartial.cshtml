@@ -15,7 +15,7 @@
                     <form id="modalForm" method="post" action="CreateSkill">
                         <div class="col-12 mt-3">
                             <label asp-for="SkillName">Skill</label>
-                            <input type="text" name="SkillName" asp-for="SkillName" class="form-control" placeholder="Enter Skill" id="" />
+                            <input type="text" name="SkillName" asp-for="SkillName" required="" class="form-control" placeholder="Enter Skill" id="" />
                             <span asp-validation-for="SkillName" class="text-danger"></span>
                         </div>
                         <input asp-for="SkillId" hidden />

@@ -53,7 +53,7 @@
                     <div class="form-group mb-3">
                         <label class="label" asp-for="user.Email">Email Address</label>
                         <input type="text" class="form-control customshadow" asp-for="user.Email"
-                               style="display: inline; " placeholder="Email address">
+                               style="display: inline; " placeholder="Email address" required="">
                         <span asp-validation-for="user.Email" class="text-danger"></span>
                     </div>
 
@@ -77,7 +77,7 @@
                 </div>
 
                 <div style="text-align: center; padding-top: 30%;">
-                    <a asp-controller="Policy" asp-action="Home" class="link-dark">Privacy Policy</a>
+                    <a asp-controller="Policy" asp-action="Policy" class="link-dark">Privacy Policy</a>
                 </div>
 
             </div>

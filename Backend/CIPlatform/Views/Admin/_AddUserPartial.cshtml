@@ -18,25 +18,25 @@
                         <div class="col-12 mt-3">
                             <label asp-for="FirstName">First Name</label>
                             <input type="text" name="FirstName" asp-for="FirstName" class="form-control"
-                                   placeholder="Enter First Name" id="">
+                                   placeholder="Enter First Name" id="" required="">
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                         <div class="col-12 mt-3">
                             <label asp-for="LastName">Last Name</label>
                             <input type="text" name="LastName" asp-for="LastName" class="form-control"
-                                   placeholder="Enter Last Name" id="">
+                                   placeholder="Enter Last Name" id="" required="">
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                         <div class="col-12 mt-3">
                             <label asp-for="Email">Email id</label>
-                            <input type="text" asp-for="Email" name="Email" class="form-control" placeholder="Enter Email"
+                            <input type="text" asp-for="Email" name="Email" class="form-control" placeholder="Enter Email" required=""
                                    id="">
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div> 
                         <div class="col-12 mt-3">
                             <label asp-for="PhoneNumber">Phone Number</label>
                             <input type="number" asp-for="PhoneNumber" name="PhoneNumber" class="form-control" placeholder="Enter Phone Number"
-                                   id="">
+                                   id="" required="">
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
                         <div class="col-12 mt-3">

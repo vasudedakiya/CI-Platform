@@ -39,6 +39,7 @@
     border-top-right-radius: var(--bs-card-inner-border-radius);
     height: 190px;
     object-fit: cover;
+    width: -webkit-fill-available;
 }
 
 .customshadow {
@@ -548,4 +549,26 @@ a:active.link-dark {
 
 .sidebarBG {
     background-color: #f88634;
+}
+
+.Stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times;
+    line-height: 1;
+    --star-size: 23px;
+    --star-color: #ddd;
+    --star-background: #f8d441;
+}
+
+.Stars::before {
+    content: "★★★★★";
+    letter-spacing: 3px;
+    background: linear-gradient( 90deg, var(--star-background) var(--percent), var(--star-color) var(--percent) );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    --star-size: 23px;
+    --star-color: #ddd;
+    --star-background: #f8d441;
 }

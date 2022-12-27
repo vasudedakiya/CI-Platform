@@ -61,21 +61,24 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item me-md-5">
-                                    <a class="nav-link text-dark" href="#">Stories</a>
+                                    @if(controllerName == "Story")
+                                    {
+                                        <a class="nav-link text-dark" asp-controller="Mission" asp-action="MissionListing">Mission</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="nav-link text-dark" asp-controller="Story" asp-action="StoryList">Stories</a>
+                                    }
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link text-dark" role="button" asp-controller="Policy" asp-action="Policy" data-bs-toggle="dropdown" aria-expanded="false">
                                         Policy <i class="bi bi-chevron-down"></i>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="#">Volunteering</a></li>
-                                        <li><a class="dropdown-item text-dark" href="#">Sponsored</a></li>
-                                    </ul>
                                 </li>
                             </ul>
 
                             <a class="navbar-brand d-flex" href="#">
-                                <img src="~/Assets/volunteer1.png" width="30" height="30"
+                                <img src="~/Assets/volunteer_General.jpg" width="30" height="30"
                                  class="d-inline-block me-2 rounded-circle d-none d-lg-block" alt="">
                                 <span class="dropdown my-2 my-sm-0">
                                     <a class="link-dark nav-link" href="#" role="button" data-bs-toggle="dropdown"
@@ -85,9 +88,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-lg-end">
-                                        <li><a class="dropdown-item text-dark" href="#">Dashbord</a></li>
-                                        <li><a class="dropdown-item text-dark" href="#">My Account</a></li>
-                                        <li><a class="dropdown-item text-dark" href="#">Help Center</a></li>
+                                        <li><a class="dropdown-item text-dark" asp-controller="Mission" asp-action="MissionListing">Dashbord</a></li>
+                                        <li><a class="dropdown-item text-dark" asp-controller="UserProfile" asp-action="UserProfile">My Account</a></li>
+                                        <li><a class="dropdown-item text-dark" asp-action="TimeSheet" asp-controller="TimeSheet">Volunteering TimeSheet</a></li>
                                         <li><a class="dropdown-item text-dark" asp-action="Logout" asp-controller="Mission">Log out</a></li>
                                     </ul>
                                 </span>
@@ -109,7 +112,7 @@
 
 
 
-    @if (controllerName != "Login")
+    @if (controllerName != "Login" && controllerName != "UserProfile")
     {
         <footer>
             <hr>

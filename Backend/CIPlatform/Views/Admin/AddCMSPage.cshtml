@@ -13,7 +13,7 @@
         <input asp-for="CreatedAt" hidden />
         <div class="col-12 mt-3">
             <Label asp-for="Title">Title*</Label>
-            <input type="text" asp-for="Title" name="Title" class="form-control mt-1" placeholder="Enter your Title">
+            <input type="text" asp-for="Title" name="Title" class="form-control mt-1" placeholder="Enter your Title" required="">
         </div>
         <div class="col-12 mt-3">
             <script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
@@ -22,7 +22,7 @@
             </script>
 
             <Label asp-for="Description">Discripsion</Label>
-            <textarea name="area2" asp-for="Description" name="Description" style="width: 100%; height: 250px;"></textarea>
+            <textarea name="area2" asp-for="Description" required="" name="Description" style="width: 100%; height: 250px;"></textarea>
         </div>
 
     </div>

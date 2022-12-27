@@ -8,7 +8,8 @@ namespace CIPlatform.DataModels
         public long TimesheetId { get; set; }
         public long UserId { get; set; }
         public long MissionId { get; set; }
-        public TimeSpan? Time { get; set; }
+        public int? Hour { get; set; }
+        public int? Minute { get; set; }
         public int? Action { get; set; }
         public DateTime DateVolunteered { get; set; }
         public string? Notes { get; set; }

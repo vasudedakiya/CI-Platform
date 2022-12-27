@@ -132,6 +132,7 @@ namespace CIPlatform.Controllers
 
         #region Admin Add POST
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult CreateAdmin(Admin model)
         {
             var admin = _db.Admins.FirstOrDefault(u => u.Email.Equals(model.Email.ToLower()) && u.DeletedAt == null);

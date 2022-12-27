@@ -17,7 +17,7 @@
                         <input asp-for="ThemeId" hidden />
                         <div class="col-12 mt-3">
                             <label asp-for="Title">Title</label>
-                            <input type="text" name="Title" asp-for="Title" class="form-control"
+                            <input type="text" name="Title" required="" asp-for="Title" class="form-control"
                                    placeholder="Enter Theme Title" id="">
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>

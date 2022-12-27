@@ -774,6 +774,8 @@ namespace CIPlatform.DataModels
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
 
+                entity.Property(e => e.ViewCount).HasColumnName("view_count");
+
                 entity.HasOne(d => d.Mission)
                     .WithMany(p => p.Stories)
                     .HasForeignKey(d => d.MissionId)
@@ -899,6 +901,10 @@ namespace CIPlatform.DataModels
                     .HasColumnType("datetime")
                     .HasColumnName("deleted_at");
 
+                entity.Property(e => e.Hour).HasColumnName("hour");
+
+                entity.Property(e => e.Minute).HasColumnName("minute");
+
                 entity.Property(e => e.MissionId).HasColumnName("mission_id");
 
                 entity.Property(e => e.Notes)
@@ -906,8 +912,6 @@ namespace CIPlatform.DataModels
                     .HasColumnName("notes");
 
                 entity.Property(e => e.Status).HasColumnName("status");
-
-                entity.Property(e => e.Time).HasColumnName("time");
 
                 entity.Property(e => e.UpdatedAt)
                     .HasColumnType("datetime")
@@ -934,9 +938,12 @@ namespace CIPlatform.DataModels
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
 
+                entity.Property(e => e.Availability).HasColumnName("availability");
+
                 entity.Property(e => e.Avatar)
                     .HasMaxLength(2048)
-                    .HasColumnName("avatar");
+                    .HasColumnName("avatar")
+                    .HasDefaultValueSql("(N'~/Assets/volunteer_General.jpg')");
 
                 entity.Property(e => e.CityId).HasColumnName("city_id");
 

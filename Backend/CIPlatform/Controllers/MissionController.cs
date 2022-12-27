@@ -15,7 +15,7 @@ namespace CIPlatform.Controllers
 
         #region Mission List Init
         [CheckSession]
-        public IActionResult MissionListing()
+        public IActionResult MissionListing(int pg = 1)
         {
             MissionListingModel model = new MissionListingModel();
 
@@ -62,12 +62,21 @@ namespace CIPlatform.Controllers
             var cardData = new List<MissionCardModel>();
 
             var tempMission = _db.Missions.Where(x => x.DeletedAt == null && x.Status == 1).AsEnumerable().ToList();
-
+            model.TotalMission = tempMission.Count();
             foreach (var item in tempMission)
             {
                 cardData.Add(CreateCard(item));
             }
             model.missionsCard = cardData;
+
+            const int pageSize = 9;
+            int recsCount = tempMission.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+
+            var data = cardData.Skip(recSkip).Take(pager.PageSize).ToList();
+            model.missionsCard = data;
+            this.ViewBag.Pager = pager;
 
             return View(model);
         }
@@ -75,7 +84,7 @@ namespace CIPlatform.Controllers
 
         #region Mission Filter
         [HttpPost]
-        public PartialViewResult Filter(List<int>? CountryId, List<int>? CityId, List<int>? ThemeId, List<int>? SkillId, string? searchText, int? sort)
+        public PartialViewResult Filter(List<int>? CountryId, List<int>? CityId, List<int>? ThemeId, List<int>? SkillId, string? searchText, int? sort, int pg = 1)
         {
             var cardData = new List<MissionCardModel>();
             var tempMission = new List<Mission>();
@@ -216,6 +225,14 @@ namespace CIPlatform.Controllers
             }
             #endregion Sort Data
 
+            const int pageSize = 9;
+            int recsCount = tempMission.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+
+            var data = cardData.Skip(recSkip).Take(pager.PageSize).ToList();
+            cardData = data;
+            this.ViewBag.Pager = pager;
 
             return PartialView("_MissionGridPartial", cardData);
         }
@@ -329,7 +346,9 @@ namespace CIPlatform.Controllers
         {
             var missionDetail = new MissionDetailModel();
             var item = _db.Missions.FirstOrDefault(x => x.MissionId == id);
+            var userId = long.Parse(HttpContext.Session.GetString("UserId"));
             missionDetail.missionCard = CreateCard(item);
+            missionDetail.missionId = id;
             missionDetail.skills = String.Join(", ", _db.MissionSkills.Where(x => x.MissionId == id && x.DeletedAt == null).Select(x => x.Skill.SkillName).ToList());
             missionDetail.availability = item.Availability == 1 ? "daily" : item.Availability == 2 ? "weekly" : item.Availability == 3 ? "week-end" : "monthly";
 
@@ -364,6 +383,19 @@ namespace CIPlatform.Controllers
                 coms.Add(temp1);
             }
             missionDetail.comments = coms;
+            var rate = _db.MissionRatings.FirstOrDefault(x => x.UserId == userId && x.MissionId == id);
+            missionDetail.myRating = rate != null ? rate.Rating : 0;
+
+            float totalRate = 0;
+            float RateCount = 0;
+            var rateRecord = _db.MissionRatings.Where(x => x.MissionId == id).ToList();
+            foreach (var i in rateRecord)
+            {
+                RateCount = RateCount + 1;
+                totalRate = totalRate + i.Rating;
+            }
+            missionDetail.avgRating = totalRate > 0 ? totalRate / RateCount : 0;
+            missionDetail.ratingUserCount = (int)RateCount;
 
             return View(missionDetail);
         }
@@ -419,7 +451,7 @@ namespace CIPlatform.Controllers
             #endregion FIlter Theme
 
             #region Create Card
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < tempMission.Count(); i++)
             {
                 cardData.Add(CreateCard(tempMission[i]));
             }
@@ -459,9 +491,48 @@ namespace CIPlatform.Controllers
             card.theme = _db.Themes.FirstOrDefault(x => x.ThemeId == item.ThemeId).Title;
             card.country = _db.Countries.FirstOrDefault(x => x.CountryId == item.CountryId).Name;
 
+            float totalRate = 0;
+            float user = 0;
+            var rate = _db.MissionRatings.Where(x => x.MissionId == item.MissionId).ToList();
+            foreach(var i in rate)
+            {
+                user = user + 1;
+                totalRate = totalRate + i.Rating;
+            }
+
+            card.avgRateing = totalRate>0 ? totalRate/user : 0;
+
             return card;
         }
         #endregion Create Card
+
+        #region Rate Mission
+        [HttpPost]
+        public JsonResult RateMission(int missionId, int rate)
+        {
+            var userId = int.Parse(HttpContext.Session.GetString("UserId"));
+            var missionRating = new MissionRating();
+            var alradyRate = _db.MissionRatings.Where(x => x.MissionId == missionId && x.UserId == userId).Count();
+
+            if (alradyRate == 0)
+            {
+                missionRating.MissionId = missionId;
+                missionRating.Rating = rate;
+                missionRating.UserId = userId;
+                _db.MissionRatings.Add(missionRating);
+            }
+            else
+            {
+                missionRating = (MissionRating)_db.MissionRatings.FirstOrDefault(x => x.MissionId == missionId && x.UserId == userId);
+                missionRating.Rating = rate;
+                missionRating.UpdatedAt = DateTime.Now;
+                _db.MissionRatings.Update(missionRating);
+            }
+            _db.SaveChanges();
+
+            return Json("True");
+        }
+        #endregion Rate Mission
 
     }
 }

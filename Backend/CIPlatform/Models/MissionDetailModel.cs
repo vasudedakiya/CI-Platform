@@ -4,6 +4,8 @@ namespace CIPlatform.Models
 {
     public class MissionDetailModel
     {
+        public int? missionId { get; set; }
+
         public MissionCardModel missionCard { get; set; }
 
         public List<MissionMedium> imgs { get; set; }
@@ -19,6 +21,12 @@ namespace CIPlatform.Models
         public List<MissionCardModel>? relatedMission { get; set; }
 
         public List<CommentModel>? comments { get; set; }
+
+        public float? avgRating { get; set; }
+
+        public int? ratingUserCount { get; set; }
+
+        public int? myRating { get; set; }
 
     }
 }

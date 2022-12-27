@@ -9,6 +9,7 @@
 
             var url = $(this).data('url');
             var decodeUrl = decodeURIComponent(url);
+            console.log(url);
             $.get(decodeUrl).done(function (data) {
                 PlaceHolderElement.html(data);
                 PlaceHolderElement.find('.modal').modal('show');
@@ -41,10 +42,8 @@
 
     @foreach (var item in Model)
     {
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4" id="CardMission_@item.mission.MissionId">
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
            
-            
-
                 <div class="card cardWidth shadow h-100" >
                     <img src="@Url.Content(@item.CardImg)" class="home-card-img" alt="...">
                     <div class="card-body">
@@ -91,11 +90,7 @@
                         <div class="mt-1 mb-4">
                             <span class="float-start">@item.mission.OrganizationName</span>
                             <span class="float-end">
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-black-50 "></i>
-                                <i class="bi bi-star-fill text-black-50 "></i>
+                                <div class="Stars" style="--rating: @item.avgRateing;" aria-label="Rating of this product is @item.avgRateing out of 5."></div>
                             </span>
                         </div>
                         <br>

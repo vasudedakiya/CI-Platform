@@ -17,19 +17,19 @@
         var formData = new FormData($('#modalForm').get(0));
         var form = $(this).parents('.modal').find('form');
         var actionUrl = form.attr('action');
+        console.log(actionUrl);
         $.ajax({
-            url: "/Admin/" + actionUrl,
+            url: actionUrl,
             type: "POST",
             data: formData,
             processData: false,
             contentType: false,
-            dataType: "json",
-            success: function (data) {
+            success: function(data){
                 PlaceHolderElement.find('.modal').modal('hide');
             }
 
         })
-        PlaceHolderElement.find('.modal').modal('hide');
+        //PlaceHolderElement.find('.modal').modal('hide');
     })
 
 })
