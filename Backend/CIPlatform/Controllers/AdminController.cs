@@ -44,27 +44,32 @@ namespace CIPlatform.Controllers
         [HttpPost]
         public IActionResult CreateUser(User model)
         {
-            if (model.UserId != 0)
+            if (model.Email != null && model.Password != null)
             {
-                EditUser(model);
-                return RedirectToAction("User", "Admin");
-            }
-            else
-            {
-                var user = _db.Users.FirstOrDefault(u => u.Email.Equals(model.Email.ToLower()) && u.DeletedAt == null);
 
-                if (user == null)
+                if (model.UserId != 0)
                 {
-                    model.Status = 1;
-                    var newUser = _db.Users.Add(model);
-                    _db.SaveChanges();
-
+                    EditUser(model);
                     return RedirectToAction("User", "Admin");
                 }
+                else
+                {
+                    var user = _db.Users.FirstOrDefault(u => u.Email.Equals(model.Email.ToLower()) && u.DeletedAt == null);
 
-                TempData["ErrorMes"] = "User Alrady exist with same Email";
-                return RedirectToAction("User", "Admin");
+                    if (user == null)
+                    {
+                        model.Status = 1;
+                        var newUser = _db.Users.Add(model);
+                        _db.SaveChanges();
+
+                        return RedirectToAction("User", "Admin");
+                    }
+
+                    TempData["ErrorMes"] = "User Alrady exist with same Email";
+                    return RedirectToAction("User", "Admin");
+                }
             }
+            return RedirectToAction("User", "Admin");
         }
         #endregion User Add POST
 
@@ -132,21 +137,20 @@ namespace CIPlatform.Controllers
 
         #region Admin Add POST
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult CreateAdmin(Admin model)
         {
-            var admin = _db.Admins.FirstOrDefault(u => u.Email.Equals(model.Email.ToLower()) && u.DeletedAt == null);
-
-            if (admin == null)
+            if (model.Email != null && model.Password != null)
             {
+                var admin = _db.Admins.FirstOrDefault(u => u.Email.Equals(model.Email.ToLower()) && u.DeletedAt == null);
+                if (admin == null)
+                {
+                    var newAdmin = _db.Admins.Add(model);
+                    _db.SaveChanges();
+                    return RedirectToAction("User", "Admin");
+                }
 
-                var newAdmin = _db.Admins.Add(model);
-                _db.SaveChanges();
-
-                return RedirectToAction("User", "Admin");
+                TempData["ErrorMes"] = "User Alrady exist with same Email";
             }
-
-            TempData["ErrorMes"] = "User Alrady exist with same Email";
             return RedirectToAction("User", "Admin");
         }
         #endregion Admin Add POST
@@ -265,146 +269,150 @@ namespace CIPlatform.Controllers
 
         #region Mission Add
 
-            #region Add Mission GET
-            [HttpGet]
-            public IActionResult CreateMission()
-            {
-                AddMissionModel mission = new AddMissionModel();
-
-                #region Fill Country Drop-down
-                List<SelectListItem> list = new List<SelectListItem>();
-                var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-                foreach (var item in temp)
-                {
-                    list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
-                }
-                mission.countrys = list;
-                #endregion Fill Country Drop-down
-
-                #region Fill Theme Drop-down
-                List<SelectListItem> list1 = new List<SelectListItem>();
-                var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-                foreach (var item in temp1)
-                {
-                    list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
-                }
-                mission.themes = list1;
-                #endregion Fill Theme Drop-down
-
-                #region Fill Skill Drop-Down
-                List<SelectListItem> list2 = new List<SelectListItem>();
-                var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-                foreach (var item in temp2)
-                {
-                    list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
-                }
-                mission.skills = list2;
-                #endregion Fill Skill Drop-Down
-
-                return PartialView("_AddMissionPartial", mission);
-            }
-            #endregion Add Mission GET
-
-            #region Fill City Drop-down
-            [HttpPost]
-            public JsonResult GetCity(int id)
-            {
-                AddMissionModel mission = new AddMissionModel();
-                List<SelectListItem> list = new List<SelectListItem>();
-
-                var temp = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == id).AsEnumerable().ToList();
-                foreach (var item in temp)
-                {
-                    list.Add(new SelectListItem() { Text = item.Name, Value = item.CityId.ToString() });
-                }
-                mission.citys = list;
-                return Json(mission.citys);
-            }
-            #endregion Fill City Drop-down
-
-            #region Add Mission POST
-        [HttpPost]
-        public IActionResult CreateMission(AddMissionModel model, List<IFormFile> imgsFiles, List<IFormFile> docFiles)
+        #region Add Mission GET
+        [HttpGet]
+        public IActionResult CreateMission()
         {
-            if (model.mission.MissionId != 0)
+            AddMissionModel mission = new AddMissionModel();
+
+            #region Fill Country Drop-down
+            List<SelectListItem> list = new List<SelectListItem>();
+            var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+            foreach (var item in temp)
             {
-                EditMission(model, imgsFiles, docFiles);
-                return RedirectToAction("BannerManagement", "Admin");
+                list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
             }
-            else
+            mission.countrys = list;
+            #endregion Fill Country Drop-down
+
+            #region Fill Theme Drop-down
+            List<SelectListItem> list1 = new List<SelectListItem>();
+            var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+            foreach (var item in temp1)
             {
-                #region Add Mission DB
-                model.mission.Status = 1;
-                _db.Missions.Add(model.mission);
-                _db.SaveChanges();
-                #endregion Add Mission DB
+                list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
+            }
+            mission.themes = list1;
+            #endregion Fill Theme Drop-down
 
-                #region Add Mission Img
-                if (imgsFiles != null)
+            #region Fill Skill Drop-Down
+            List<SelectListItem> list2 = new List<SelectListItem>();
+            var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+            foreach (var item in temp2)
+            {
+                list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
+            }
+            mission.skills = list2;
+            #endregion Fill Skill Drop-Down
+
+            return PartialView("_AddMissionPartial", mission);
+        }
+        #endregion Add Mission GET
+
+        #region Fill City Drop-down
+        [HttpPost]
+        public JsonResult GetCity(int id)
+        {
+            AddMissionModel mission = new AddMissionModel();
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            var temp = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == id).AsEnumerable().ToList();
+            foreach (var item in temp)
+            {
+                list.Add(new SelectListItem() { Text = item.Name, Value = item.CityId.ToString() });
+            }
+            mission.citys = list;
+            return Json(mission.citys);
+        }
+        #endregion Fill City Drop-down
+
+        #region Add Mission POST
+        [HttpPost]
+        public IActionResult CreateMission(AddMissionModel model, List<IFormFile>? imgsFiles, List<IFormFile>? docFiles)
+        {
+            if (model.mission.Title != null && model.mission.ThemeId != null && model.mission.CityId != null && model.mission.CountryId != null && model.mission.MissionType != null && imgsFiles != null)
+            {
+                if (model.mission.MissionId != 0)
                 {
-                    foreach (var im in imgsFiles)
-                    {
-                        var missionMedia = new MissionMedium();
-                        missionMedia.MissionId = model.mission.MissionId;
-                        missionMedia.MediaType = Path.GetExtension(im.FileName); ;
-                        missionMedia.MediaName = im.FileName;
-                        missionMedia.MediaPath = saveImg(im, "MissionMedia");
-
-                        _db.MissionMedia.Add(missionMedia);
-                        _db.SaveChanges();
-                    }
+                    EditMission(model, imgsFiles, docFiles);
+                    return RedirectToAction("BannerManagement", "Admin");
                 }
-                #endregion Add Mission Img
-
-                #region Add Mission Doc
-                if (docFiles != null)
+                else
                 {
-                    foreach (var file in docFiles)
-                    {
-                        var missionDoc = new MissionDocument();
-                        missionDoc.MissionId = model.mission.MissionId;
-                        missionDoc.DocumentType = Path.GetExtension(file.FileName);
-                        missionDoc.DocumentName = file.FileName;
-                        missionDoc.DocumentPath = saveImg(file, "MissionDocument");
-
-                        _db.MissionDocuments.Add(missionDoc);
-                        _db.SaveChanges();
-                    }
-                }
-                #endregion Add Mission Doc
-
-                #region Add Goal Mission
-                if (model.mission.MissionType == 2)
-                {
-                    var goalMission = new GoalMission();
-                    goalMission.MissionId = model.mission.MissionId;
-                    goalMission.GoalValue = model.goalMission.GoalValue;
-                    goalMission.GoalObjectiveText = model.goalMission.GoalObjectiveText;
-
-                    _db.GoalMissions.Add(goalMission);
+                    #region Add Mission DB
+                    model.mission.Status = 1;
+                    _db.Missions.Add(model.mission);
                     _db.SaveChanges();
-                }
-                #endregion Add Goal Mission
+                    #endregion Add Mission DB
 
-                #region Add Mission Skill
-                if (model.addSkill != null)
-                {
-                    var temp = model.addSkill[0];
-                    var numbers = temp?.Split(',')?.Select(Int32.Parse)?.ToList();
-                    foreach (var n in numbers)
+                    #region Add Mission Img
+                    if (imgsFiles != null)
                     {
-                        var missionSkill = new MissionSkill();
-                        missionSkill.MissionId = model.mission.MissionId;
-                        missionSkill.SkillId = n;
+                        foreach (var im in imgsFiles)
+                        {
+                            var missionMedia = new MissionMedium();
+                            missionMedia.MissionId = model.mission.MissionId;
+                            missionMedia.MediaType = Path.GetExtension(im.FileName); ;
+                            missionMedia.MediaName = im.FileName;
+                            missionMedia.MediaPath = saveImg(im, "MissionMedia");
 
-                        _db.MissionSkills.Add(missionSkill);
+                            _db.MissionMedia.Add(missionMedia);
+                            _db.SaveChanges();
+                        }
+                    }
+                    #endregion Add Mission Img
+
+                    #region Add Mission Doc
+                    if (docFiles != null)
+                    {
+                        foreach (var file in docFiles)
+                        {
+                            var missionDoc = new MissionDocument();
+                            missionDoc.MissionId = model.mission.MissionId;
+                            missionDoc.DocumentType = Path.GetExtension(file.FileName);
+                            missionDoc.DocumentName = file.FileName;
+                            missionDoc.DocumentPath = saveImg(file, "MissionDocument");
+
+                            _db.MissionDocuments.Add(missionDoc);
+                            _db.SaveChanges();
+                        }
+                    }
+                    #endregion Add Mission Doc
+
+                    #region Add Goal Mission
+                    if (model.mission.MissionType == 2)
+                    {
+                        var goalMission = new GoalMission();
+                        goalMission.MissionId = model.mission.MissionId;
+                        goalMission.GoalValue = model.goalMission.GoalValue;
+                        goalMission.GoalObjectiveText = model.goalMission.GoalObjectiveText;
+
+                        _db.GoalMissions.Add(goalMission);
                         _db.SaveChanges();
                     }
-                }
-                #endregion Add Mission Skill
+                    #endregion Add Goal Mission
 
-                return RedirectToAction("Mission", "Admin");
+                    #region Add Mission Skill
+                    if (model.addSkill != null)
+                    {
+                        var temp = model.addSkill[0];
+                        var numbers = temp?.Split(',')?.Select(Int32.Parse)?.ToList();
+                        foreach (var n in numbers)
+                        {
+                            var missionSkill = new MissionSkill();
+                            missionSkill.MissionId = model.mission.MissionId;
+                            missionSkill.SkillId = n;
+
+                            _db.MissionSkills.Add(missionSkill);
+                            _db.SaveChanges();
+                        }
+                    }
+                    #endregion Add Mission Skill
+
+                    return RedirectToAction("Mission", "Admin");
+                }
             }
+            return RedirectToAction("Mission", "Admin");
         }
         #endregion Add Mission POST
 
@@ -412,63 +420,63 @@ namespace CIPlatform.Controllers
 
         #region Mission Edit 
 
-            #region Edit Mission GET
-            [HttpGet]
-            public IActionResult EditMission(int id)
+        #region Edit Mission GET
+        [HttpGet]
+        public IActionResult EditMission(int id)
+        {
+            AddMissionModel mission = new AddMissionModel();
+
+            mission.mission = _db.Missions.FirstOrDefault(x => x.MissionId == id);
+
+            mission.goalMission = _db.GoalMissions.FirstOrDefault(x => x.MissionId == mission.mission.MissionId);
+
+            mission.addSkill = _db.MissionSkills.Where(s => s.MissionId == mission.mission.MissionId).Select(x => x.SkillId.ToString()).ToList();
+
+            #region Fill Country Drop-down
+            List<SelectListItem> list = new List<SelectListItem>();
+            var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+            foreach (var item in temp)
             {
-                AddMissionModel mission = new AddMissionModel();
-
-                mission.mission = _db.Missions.FirstOrDefault(x => x.MissionId == id);
-
-                mission.goalMission = _db.GoalMissions.FirstOrDefault(x => x.MissionId == mission.mission.MissionId);
-
-                mission.addSkill = _db.MissionSkills.Where(s => s.MissionId == mission.mission.MissionId).Select(x => x.SkillId.ToString()).ToList();
-
-                #region Fill Country Drop-down
-                List<SelectListItem> list = new List<SelectListItem>();
-                var temp = _db.Countries.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-                foreach (var item in temp)
-                {
-                    list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
-                }
-                mission.countrys = list;
-                #endregion Fill Country Drop-down
-
-                #region Fill City Drop-down
-                List<SelectListItem> list3 = new List<SelectListItem>();
-                var temp3 = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == mission.mission.CountryId).AsEnumerable().ToList();
-                foreach (var item in temp3)
-                {
-                    list3.Add(new SelectListItem() { Text = item.Name, Value = item.CityId.ToString() });
-                }
-                mission.citys = list3;
-                #endregion Fill City Drop-down
-
-                #region Fill Theme Drop-down
-                List<SelectListItem> list1 = new List<SelectListItem>();
-                var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-                foreach (var item in temp1)
-                {
-                    list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
-                }
-                mission.themes = list1;
-                #endregion Fill Theme Drop-down
-
-                #region Fill Skill Drop-Down
-                List<SelectListItem> list2 = new List<SelectListItem>();
-                var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
-                foreach (var item in temp2)
-                {
-                    list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
-                }
-                mission.skills = list2;
-                #endregion Fill Skill Drop-Down
-
-                return PartialView("_AddMissionPartial", mission);
+                list.Add(new SelectListItem() { Text = item.Name, Value = item.CountryId.ToString() });
             }
-            #endregion Edit Mission GET
+            mission.countrys = list;
+            #endregion Fill Country Drop-down
 
-            #region Edit Mission POST
+            #region Fill City Drop-down
+            List<SelectListItem> list3 = new List<SelectListItem>();
+            var temp3 = _db.Cities.Where(x => x.DeletedAt == null && x.CountryId == mission.mission.CountryId).AsEnumerable().ToList();
+            foreach (var item in temp3)
+            {
+                list3.Add(new SelectListItem() { Text = item.Name, Value = item.CityId.ToString() });
+            }
+            mission.citys = list3;
+            #endregion Fill City Drop-down
+
+            #region Fill Theme Drop-down
+            List<SelectListItem> list1 = new List<SelectListItem>();
+            var temp1 = _db.Themes.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+            foreach (var item in temp1)
+            {
+                list1.Add(new SelectListItem() { Text = item.Title, Value = item.ThemeId.ToString() });
+            }
+            mission.themes = list1;
+            #endregion Fill Theme Drop-down
+
+            #region Fill Skill Drop-Down
+            List<SelectListItem> list2 = new List<SelectListItem>();
+            var temp2 = _db.Skills.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
+            foreach (var item in temp2)
+            {
+                list2.Add(new SelectListItem() { Text = item.SkillName, Value = item.SkillId.ToString() });
+            }
+            mission.skills = list2;
+            #endregion Fill Skill Drop-Down
+
+            return PartialView("_AddMissionPartial", mission);
+        }
+        #endregion Edit Mission GET
+
+        #region Edit Mission POST
         [HttpPost]
         public IActionResult EditMission(AddMissionModel model, List<IFormFile> imgsFiles, List<IFormFile> docFiles)
         {
@@ -634,18 +642,21 @@ namespace CIPlatform.Controllers
         [HttpPost]
         public IActionResult CreateTheme(Theme model)
         {
-            if (model.ThemeId != 0)
+            if (model.Title != null)
             {
-                EditTheme(model);
-                return RedirectToAction("MissionTheme", "Admin");
+
+                if (model.ThemeId != 0)
+                {
+                    EditTheme(model);
+                }
+                else
+                {
+                    model.Status = 1;
+                    _db.Themes.Add(model);
+                    _db.SaveChanges();
+                }
             }
-            else
-            {
-                model.Status = 1;
-                _db.Themes.Add(model);
-                _db.SaveChanges();
-                return RedirectToAction("MissionTheme", "Admin");
-            }
+            return RedirectToAction("MissionTheme", "Admin");
         }
         #endregion Add Theme POST
 
@@ -731,18 +742,20 @@ namespace CIPlatform.Controllers
         [HttpPost]
         public IActionResult CreateSkill(Skill model)
         {
-            if (model.SkillId != 0)
+            if (model.SkillName != null)
             {
-                EditSkill(model);
-                return RedirectToAction("MissionSkill", "Admin");
+                if (model.SkillId != 0)
+                {
+                    EditSkill(model);
+                }
+                else
+                {
+                    model.Status = 1;
+                    _db.Skills.Add(model);
+                    _db.SaveChanges();
+                }
             }
-            else
-            {
-                model.Status = 1;
-                _db.Skills.Add(model);
-                _db.SaveChanges();
-                return RedirectToAction("MissionSkill", "Admin");
-            }
+            return RedirectToAction("MissionSkill", "Admin");
         }
 
         #endregion Skill Add POST
@@ -849,7 +862,7 @@ namespace CIPlatform.Controllers
             var model = new AdminModel();
             model.users = _db.Users.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
             model.stories = _db.Stories.Where(x => x.Status == 1 && x.DeletedAt == null).AsEnumerable().ToList();
-            model.missions  = _db.Missions.Where(x=>x.DeletedAt == null).AsEnumerable().ToList();
+            model.missions = _db.Missions.Where(x => x.DeletedAt == null).AsEnumerable().ToList();
             return View(model);
         }
         #endregion Story List DataTable
@@ -927,22 +940,26 @@ namespace CIPlatform.Controllers
         [HttpPost]
         public IActionResult CreateBanner(Banner model, IFormFile? carouselImg)
         {
-            if (model.BannerId != 0)
+            if (carouselImg != null && model.Title != null)
             {
-                EditBanner(model, carouselImg);
-                return RedirectToAction("BannerManagement", "Admin");
-            }
-            else
-            {
-                if (carouselImg != null)
+                if (model.BannerId != 0)
                 {
-                    model.Image = saveImg(carouselImg, "Banner");
+                    EditBanner(model, carouselImg);
+                    return RedirectToAction("BannerManagement", "Admin");
                 }
-                var newBanner = _db.Banners.Add(model);
-                _db.SaveChanges();
+                else
+                {
+                    if (carouselImg != null)
+                    {
+                        model.Image = saveImg(carouselImg, "Banner");
+                    }
+                    var newBanner = _db.Banners.Add(model);
+                    _db.SaveChanges();
 
-                return RedirectToAction("BannerManagement", "Admin");
+                    return RedirectToAction("BannerManagement", "Admin");
+                }
             }
+            return RedirectToAction("BannerManagement", "Admin");
         }
         #endregion Banner Add
 

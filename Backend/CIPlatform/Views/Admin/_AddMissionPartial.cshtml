@@ -53,41 +53,41 @@
 
 @if (Model.mission != null && Model.mission.MissionType == 2)
 {
-         <script>
-             setTimeout(function(){ $("#goalMission").show(); }, 1000);
-        </script>
+    <script>
+        setTimeout(function(){ $("#goalMission").show(); }, 1000);
+    </script>
 }
 else if (Model.mission != null)
 {
-        <script>
-            setTimeout(function(){ $("#timeMission").show(); }, 1000);
-        </script>
+    <script>
+        setTimeout(function(){ $("#timeMission").show(); }, 1000);
+    </script>
 
 }
 
 <style>
-.vscomp-toggle-button {
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    display: flex;
-    padding: 7px 30px 7px 10px;
-    position: relative;
-    width: 100%;
-}
+    .vscomp-toggle-button {
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        display: flex;
+        padding: 7px 30px 7px 10px;
+        position: relative;
+        width: 100%;
+    }
 </style>
 <div class="modal fade" id="SubmitNewMission" tabindex="-1" aria-labelledby="SubmitNewMissionLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">@(Model.mission == null ? "Add New" : "Edit") Mission</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <form id="modalForm" method="post" action="CreateMission" enctype="multipart/form-data">
+            <form id="modalForm" method="post" action="CreateMission" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">@(Model.mission == null ? "Add New" : "Edit") Mission</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
                         <input asp-for="mission.MissionId" hidden />
                         <input asp-for="mission.CreatedAt" hidden />
                         <input asp-for="mission.Status" hidden />
@@ -134,10 +134,10 @@ else if (Model.mission != null)
                         </div>
 
                         <div class="col-12 mt-3">
-                                <label asp-for="mission.TotalSeat">Total seats</label>
-                                <input type="number" name="mission.TotalSeat" asp-for="mission.TotalSeat" class="form-control"
-                                       placeholder="Enter total seats" id="">
-                            </div>
+                            <label asp-for="mission.TotalSeat">Total seats</label>
+                            <input type="number" name="mission.TotalSeat" asp-for="mission.TotalSeat" class="form-control"
+                                   placeholder="Enter total seats" id="">
+                        </div>
 
                         <div class="col-12 mt-3">
                             <label asp-for="mission.OrganizationName">Mission Organisation Name</label>
@@ -221,16 +221,16 @@ else if (Model.mission != null)
                                 <option value="4">monthly</option>
                             </select>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary rounded-pill"
-                        data-bs-dismiss="modal">
-                    Cancel
-                </button>
-                <button type="button" data-bs-save="modal" class="btn btn-outline-warning rounded-pill">Submit</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-outline-warning rounded-pill">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

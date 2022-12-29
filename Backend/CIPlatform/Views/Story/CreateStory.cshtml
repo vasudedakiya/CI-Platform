@@ -34,7 +34,7 @@
                 <div class="col-md-4 col-sm-12">
                     <label>Select Mission</label>
                     <br>
-                    <select class="form-select" id="ddlCountry" asp-for="story.MissionId" asp-items="@Model.missions" aria-label="Default select example">
+                    <select class="form-select customshadow" id="ddlCountry" required="" asp-for="story.MissionId" asp-items="@Model.missions" aria-label="Default select example">
                         <option selected>Select Mission</option>
                     </select>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="col-md-4 col-sm-12">
                     <label asp-for="story.Title">My story Title</label>
                     <br>
-                    <input type="text" class="form-control customshadow p-2 w-100" name="story.Title" asp-for="story.Title"
+                    <input type="text" required="" class="form-control customshadow p-2 w-100" name="story.Title" asp-for="story.Title"
                            placeholder="Enter Story Title">
                     <span asp-validation-for="story.Title" class="text-danger"></span>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="col-md-4 col-sm-12">
                     <label>Date</label>
                     <br>
-                    <input type="date" asp-for="story.PublishedAt" class="form-control customshadow p-2 w-100" 
+                    <input type="date" required="" asp-for="story.PublishedAt" class="form-control customshadow p-2 w-100" 
                            placeholder="Enter Story Title" id="">
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 </script>
 
                 <Label asp-for="story.Description">My Story</Label>
-                <textarea name="story.Description" asp-for="story.Description" style="width: 100%; height: 250px;"></textarea>
+                <textarea name="story.Description" required="" asp-for="story.Description" style="width: 100%; height: 250px;"></textarea>
                 <span asp-validation-for="story.Description" class="text-danger"></span>
             </div>
 
@@ -81,65 +81,6 @@
                 <div class="d-none d-sm-block d-flex">
                     <div class="row mt-4" id="imgDiv">
 
-                        @*<div class="col-md-1 col-sm-3 mb-3 position-relative">
-                            <img src="./assets/Gallery_1.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            <div class="position-absolute top-0 end-0">X</div>
-                            </div>
-
-                            <div class="col-md-1 col-sm-3 mb-3 position-relative">
-                            <img src="./assets/Gallery_2.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            <div class="position-absolute top-0 end-0 me-3">X</div>
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_3.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_4.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_5.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/gallery_6.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_1.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_2.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_3.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_4.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_5.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_6.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_6.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>
-                            <div class="col-md-1 col-sm-3 mb-3">
-                            <img src="./assets/Gallery_5.png" data-mdb-img="./assets/Gallery_1.png"
-                            alt="Gallery image 1" class="active w-100" />
-                            </div>*@
                     </div>
                 </div>
 

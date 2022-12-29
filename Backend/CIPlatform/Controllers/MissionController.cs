@@ -272,30 +272,32 @@ namespace CIPlatform.Controllers
         }
 
         [HttpPost]
-        public JsonResult SuggestCoWorker(string WorkerEmail, Mission model)
+        public IActionResult SuggestCoWorker(string WorkerEmail, Mission model)
         {
+            if (WorkerEmail != null)
+            {
+                var mission = _db.Missions.FirstOrDefault(x => x.MissionId == model.MissionId);
 
-            var mission = _db.Missions.FirstOrDefault(x => x.MissionId == model.MissionId);
+                #region Send Mail
+                var mailBody = "<h1>" + HttpContext.Session.GetString("UserName") + " Suggest Mission : " + mission.Title + " to You</h1><br><h2><a href='https://localhost:7227/Mission/MisionDetail?id= " + model.MissionId + "'>Go Website</a></h2>";
 
-            #region Send Mail
-            var mailBody = "<h1>" + HttpContext.Session.GetString("UserName") + " Suggest Mission : " + mission.Title + " to You</h1><br><h2><a href='https://localhost:7227/Mission/MisionDetail?id= " + model.MissionId + "'>Go Website</a></h2>";
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse("vasudedakiya3@gmail.com"));
+                email.To.Add(MailboxAddress.Parse(WorkerEmail));
+                email.Subject = "Co-Worker Suggestion";
+                email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
 
-            // create email message
-            var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("vasudedakiya3@gmail.com"));
-            email.To.Add(MailboxAddress.Parse(WorkerEmail));
-            email.Subject = "Co-Worker Suggestion";
-            email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
+                // send email
+                using var smtp = new SmtpClient();
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate("vasudedakiya3@gmail.com", "whdatdbclkgporxj");
+                smtp.Send(email);
+                smtp.Disconnect(true);
+                #endregion Send Mail
+            }
 
-            // send email
-            using var smtp = new SmtpClient();
-            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("vasudedakiya3@gmail.com", "whdatdbclkgporxj");
-            smtp.Send(email);
-            smtp.Disconnect(true);
-            #endregion Send Mail
-
-            return Json("True");
+            return RedirectToAction("MissionListing", "Mission");
         }
         #endregion Suggest CoWorker
 
@@ -306,12 +308,10 @@ namespace CIPlatform.Controllers
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
             {
                 return Json("You have to login first");
-
             }
             if (_db.MissionApplications.FirstOrDefault(x => x.MissionId == id && x.UserId == int.Parse(HttpContext.Session.GetString("UserId")) && x.ApprovalStatus == 1) != null)
             {
                 return Json("You are alrady Part of mission");
-
             }
             else if (_db.MissionApplications.FirstOrDefault(x => x.MissionId == id && x.UserId == int.Parse(HttpContext.Session.GetString("UserId"))) != null)
             {
@@ -487,6 +487,12 @@ namespace CIPlatform.Controllers
             card.CardImg = img != null ? img.MediaPath : "~/assets/card_1.png";
             card.seatsLeft = (int)(item.TotalSeat - (_db.MissionApplications.Where(x => x.MissionId == item.MissionId).Count()));
             card.goalMission = _db.GoalMissions.FirstOrDefault(x => x.MissionId == item.MissionId);
+            if(card.goalMission != null)
+            {
+                float action = (float)_db.Timesheets.Where(x => x.MissionId == item.MissionId && x.DeletedAt == null).Select(x => x.Action).Sum();
+                float totalGoal = card.goalMission.GoalValue;
+                card.progressBar = (action*100)/totalGoal;
+            }
             card.favMission = _db.FavouriteMissions.FirstOrDefault(x => x.MissionId == item.MissionId && x.UserId == int.Parse(HttpContext.Session.GetString("UserId")) && x.DeletedAt == null) != null ? 1 : 0;
             card.theme = _db.Themes.FirstOrDefault(x => x.ThemeId == item.ThemeId).Title;
             card.country = _db.Countries.FirstOrDefault(x => x.CountryId == item.CountryId).Name;
@@ -494,13 +500,13 @@ namespace CIPlatform.Controllers
             float totalRate = 0;
             float user = 0;
             var rate = _db.MissionRatings.Where(x => x.MissionId == item.MissionId).ToList();
-            foreach(var i in rate)
+            foreach (var i in rate)
             {
                 user = user + 1;
                 totalRate = totalRate + i.Rating;
             }
 
-            card.avgRateing = totalRate>0 ? totalRate/user : 0;
+            card.avgRateing = totalRate > 0 ? totalRate / user : 0;
 
             return card;
         }

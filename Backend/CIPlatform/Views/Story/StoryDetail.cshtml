@@ -2,84 +2,77 @@
 @model StoryDetailModel
 
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
 <script>
-        $(function () {
+    $(document).ready(function () {
+        const slides = document.querySelectorAll(".slide")
+        const vid = document.querySelectorAll("video.slide")
+        const totalImgInSlider = 4;
+        const totalImg = @Model.storyImg.Count();
+        var counter = 0;
 
-        var PlaceHolderElement = $('#PlaceHolderHere');
-        $('button[data-toggle="ajax-modal"]').click(function (event) {
+        slides.forEach(
+            (slider, index) => {
+                slider.style.left = `${index * 100 / totalImgInSlider}%`
+            }
+        )
 
-            var url = $(this).data('url');
-            var decodeUrl = decodeURIComponent(url);
-            $.get(decodeUrl).done(function (data) {
-                PlaceHolderElement.html(data);
-                PlaceHolderElement.find('.modal').modal('show');
+        slideImg = () => {
+            slides.forEach((slider) => {
+                    slider.style.transform = `translateX(-${counter * 100}%)`
             })
-        })
+        }
 
-        PlaceHolderElement.on('click', '[data-bs-save="modal"]', function (event) {
+        goPrev = () => {
+            if (counter != 0)
+                counter--;
+            slideImg();
+        }
 
-            var formData = new FormData($('#modalForm').get(0));
-            var form = $(this).parents('.modal').find('form');
-            var actionUrl = form.attr('action');
-            $.ajax({
-                url: "/Mission/" + actionUrl,
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: "json",
-                success: function (data) {
-                    PlaceHolderElement.find('.modal').modal('hide');
-                }
+        goNext = () => {
+            if (counter < totalImg - totalImgInSlider)
+                counter++;
+            slideImg();
+        }
 
-            })
-            PlaceHolderElement.find('.modal').modal('hide');
-        })
-
-    })
-
-    function suggestCoWorker(){
-        var PlaceHolderElement = $('#PlaceHolderHere');
-        console.log("Hello");
-        var formData = new FormData($('#modalForm').get(0));
-            var form = $(this).parents('.modal').find('form');
-            var actionUrl = form.attr('action');
-            $.ajax({
-                url: "/Story/SuggestCoWorker",
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: "json",
-                success: function (data) {
-                    PlaceHolderElement.find('.modal').modal('hide');
-                }
-
-            })
-            PlaceHolderElement.find('.modal').modal('hide');
-    }
+        setImage = () => {
+            document.getElementById("demo").src = document.querySelector(".slide.active").src;
+        }
+    });
 </script>
+<link rel="stylesheet" href="~/css/slider.css" />
 
 <div class="container-lg">
     <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-                <div class="row shadow-5">
-                    <div class="col-12 mb-1">
-                        <div class="lightbox">
-                            <img src="~/assets/Gallery_6.png" alt="Gallery image 1"
-                                 class="ecommerce-gallery-main-img active w-100" />
-                        </div>
-                    </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 position-relative">
+            <display>
+                <img style="height: 420px; width: 100%;object-fit: cover;" id="demo" src="@Url.Content(Model.storyImg[0])" alt="">
+            </display>
+            <div class="sliderNav">
+                @foreach (var item in Model.storyImg)
+                {
+                    <div><img class="slide" src="@Url.Content(item)" alt="can't rendor"></div>
+                }
+                <button onclick="goPrev()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </button>
+                <button onclick="goNext()" style="right:0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </button>
+                <script>
 
-                    @foreach (var item in Model.storyImg)
-                    {
-                        <div class="col-2 mt-1" style="padding-left: 2px;padding-right: 2px;">
-                            <img src="@Url.Content(item)" data-mdb-img="@Url.Content(item)"
-                             alt="Gallery image 1" class="active w-100" />
-                        </div>
-                    }
-                </div>
+                    $("img.slide").on('click', function (event) {
+                        $('.slide.active').removeClass('active');
+                        $(this).addClass("active");
+                        setImage();
+                    });
+                </script>
             </div>
         </div>
         <div class="col-md-6 col-sm-12 p-5 pt-3">

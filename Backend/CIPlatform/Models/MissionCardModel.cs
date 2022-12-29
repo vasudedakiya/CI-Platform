@@ -16,13 +16,14 @@ namespace CIPlatform.Models
 
         public GoalMission? goalMission { get; set; }
 
-        public int? progressBar { get; set; }
+        public float? progressBar { get; set; }
 
         public string theme { get; set; }
 
         public string country { get; set; }
 
         public float? avgRateing { get; set; }
+
 
     }
 }

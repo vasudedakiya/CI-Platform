@@ -10,7 +10,7 @@ namespace CIPlatform.Models
         
         public List<SelectListItem>? userOldSkill { get; set; }
 
-        public List<SelectListItem>? userNewSkill { get; set; }
+        public List<string>? userNewSkill { get; set; }
 
     }
 }

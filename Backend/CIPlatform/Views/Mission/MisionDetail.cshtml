@@ -22,10 +22,8 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
         $(function () {
-
         var PlaceHolderElement = $('#PlaceHolderHere');
         $('button[data-toggle="ajax-modal"]').click(function (event) {
-
             var url = $(this).data('url');
             var decodeUrl = decodeURIComponent(url);
             $.get(decodeUrl).done(function (data) {
@@ -35,7 +33,6 @@
         })
 
         PlaceHolderElement.on('click', '[data-bs-save="modal"]', function (event) {
-
             var formData = new FormData($('#modalForm').get(0));
             var form = $(this).parents('.modal').find('form');
             var actionUrl = form.attr('action');
@@ -49,15 +46,11 @@
                 success: function (data) {
                     PlaceHolderElement.find('.modal').modal('hide');
                 }
-
             })
             PlaceHolderElement.find('.modal').modal('hide');
         })
-
     })
 </script>
-
-
 
 <script>
     $(document).ready(function(){
@@ -153,49 +146,75 @@
      }
 </script>
 
+<script>
+    $(document).ready(function () {
+        const slides = document.querySelectorAll(".slide")
+        const vid = document.querySelectorAll("video.slide")
+        const totalImgInSlider = 4;
+        const totalImg = @Model.imgs.Count();
+        var counter = 0;
+
+        slides.forEach(
+            (slider, index) => {
+                slider.style.left = `${index * 100 / totalImgInSlider}%`
+            }
+        )
+
+        slideImg = () => {
+            slides.forEach((slider) => {
+                    slider.style.transform = `translateX(-${counter * 100}%)`
+            })
+        }
+
+        goPrev = () => {
+            if (counter != 0)
+                counter--;
+            slideImg();
+        }
+
+        goNext = () => {
+            if (counter < totalImg - totalImgInSlider)
+                counter++;
+            slideImg();
+        }
+
+        setImage = () => {
+            document.getElementById("demo").src = document.querySelector(".slide.active").src;
+        }
+    });
+</script>
+
+<link rel="stylesheet" href="~/css/slider.css" />
 <div class="container-lg">
     <!-- #region Galary & Main Content -->
     <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-                <div class="row shadow-5">
-                    <div class="col-12 mb-1">
-                        <div class="lightbox">
-                            <img src="~/assets/Gallery_1.png" alt="Gallery image 1"
-                                 class="ecommerce-gallery-main-img active w-100" />
-                        </div>
-                    </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 position-relative">
+            <display>
+                <img style="height: 420px; width: 100%;object-fit: cover;" id="demo" src="@Url.Content(Model.imgs[0].MediaPath)" alt="">
+            </display>
+            <div class="sliderNav">
+                @foreach (var item in Model.imgs)
+                {
+                    <div><img class="slide" src="@Url.Content(item.MediaPath)" alt="can't rendor"></div>
+                }
+                <button onclick="goPrev()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </button>
+                <button onclick="goNext()" style="right:0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </button>
+                <script>
 
-                    @foreach (var item in Model.imgs)
-                    {
-                        <div class="col-2 mt-1" style="padding-left: 2px;padding-right: 2px;">
-                            <img src="@Url.Content(item.MediaPath)" data-mdb-img="@Url.Content(item.MediaPath)"
-                             alt="Gallery image 1" class="active w-100" />
-                        </div>
-                    }
-
-                    @*<div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
-                        <img src="~/assets/Gallery_2.png" data-mdb-img="~/assets/Gallery_2.png"
-                        alt="Gallery image 1" class="  w-100 " />
-                        </div>
-                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
-                        <img src="~/assets/Gallery_3.png" data-mdb-img="~/assets/Gallery_3.png"
-                        alt="Gallery image 1" class="  w-100 " />
-                        </div>
-                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
-                        <img src="~/assets/Gallery_4.png" data-mdb-img="~/assets/Gallery_4.png"
-                        alt="Gallery image 1" class="  w-100 " />
-                        </div>
-                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
-                        <img src="~/assets/Gallery_5.png" data-mdb-img="~/assets/Gallery_5.png"
-                        alt="Gallery image 1" class="  w-100 " />
-                        </div>
-                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
-                        <img src="~/assets/Gallery_6.png" data-mdb-img="~/assets/Gallery_6.png"
-                        alt="Gallery image 1" class="  w-100 " />
-                        </div>
-                    *@
-                </div>
+                    $("img.slide").on('click', function (event) {
+                        $('.slide.active').removeClass('active');
+                        $(this).addClass("active");
+                        setImage();
+                    });
+                </script>
             </div>
         </div>
         <div class="col-md-6 col-sm-12 p-md-5 p-sm-2 pt-3">
@@ -310,7 +329,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
                     <div class="border p-2">
                         <span>
                             <i class="bi bi-geo-alt fs-3"></i>
@@ -321,7 +340,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
                     <div class="border p-2">
                         <span>
                             <i class="bi bi-globe fs-3"></i>
@@ -332,7 +351,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
                     <div class="border p-2">
                         <span>
                             <i class="bi bi-calendar3 fs-3"></i>
@@ -350,7 +369,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
                     <div class="border p-2">
                         <span>
                             <i class="bi bi-people fs-3"></i>

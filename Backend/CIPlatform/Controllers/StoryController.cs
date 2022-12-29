@@ -27,14 +27,14 @@ namespace CIPlatform.Controllers
         {
             var model = new List<StoryListModel>();
 
-            var storys = _db.Stories.Where(x=>x.Status == 1).AsEnumerable().ToList();
+            var storys = _db.Stories.Where(x => x.Status == 1 && x.DeletedAt == null).AsEnumerable().ToList();
 
             foreach (var item in storys)
             {
                 var story = new StoryListModel();
                 story.story = item;
-                var user = _db.Users.FirstOrDefault(x=>x.UserId == story.story.UserId);
-                story.userName = user.LastName +  " " + user.FirstName;
+                var user = _db.Users.FirstOrDefault(x => x.UserId == story.story.UserId);
+                story.userName = user.LastName + " " + user.FirstName;
                 story.userImg = user.Avatar != null ? user.Avatar : "~/assets/volunteer9.png";
                 var img = _db.StoryMedia.FirstOrDefault(x => x.StoryId == story.story.StoryId);
                 story.cardImg = img != null ? img.Path : "~/assets/card_3.png";
@@ -67,7 +67,7 @@ namespace CIPlatform.Controllers
 
             #region Fill mission Drop-down 
             List<SelectListItem> list = new List<SelectListItem>();
-            var temp = _db.MissionApplications.Where(x=>x.UserId == int.Parse(HttpContext.Session.GetString("UserId")) && x.ApprovalStatus == 1).Select(x => x.MissionId).ToList();
+            var temp = _db.MissionApplications.Where(x => x.UserId == int.Parse(HttpContext.Session.GetString("UserId")) && x.ApprovalStatus == 1).Select(x => x.MissionId).ToList();
             foreach (var item in temp)
             {
                 var mission = _db.Missions.FirstOrDefault(x => x.MissionId == item);
@@ -163,30 +163,32 @@ namespace CIPlatform.Controllers
         }
 
         [HttpPost]
-        public JsonResult SuggestCoWorker(string WorkerEmail, Story model)
+        public IActionResult SuggestCoWorker(string WorkerEmail, Story model)
         {
+            if (WorkerEmail != null)
+            {
+                var story = _db.Stories.FirstOrDefault(x => x.StoryId == model.StoryId);
+                
+                #region Send Mail
+                var mailBody = "<h1>" + HttpContext.Session.GetString("UserName") + " Suggest Mission : " + story.Title + " to You</h1><br><h2><a href='https://localhost:7227/Story/StoryDetail?id= " + model.StoryId + "'>Go Website</a></h2>";
 
-            var story = _db.Stories.FirstOrDefault(x => x.StoryId == model.StoryId);
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse("vasudedakiya3@gmail.com"));
+                email.To.Add(MailboxAddress.Parse(WorkerEmail));
+                email.Subject = "Co-Worker Suggestion";
+                email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
 
-            #region Send Mail
-            var mailBody = "<h1>" + HttpContext.Session.GetString("UserName") + " Suggest Mission : " + story.Title + " to You</h1><br><h2><a href='https://localhost:7227/Story/StoryDetail?id= " + model.StoryId + "'>Go Website</a></h2>";
+                // send email
+                using var smtp = new SmtpClient();
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate("vasudedakiya3@gmail.com", "whdatdbclkgporxj");
+                smtp.Send(email);
+                smtp.Disconnect(true);
+                #endregion Send Mail
+            }
 
-            // create email message
-            var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("vasudedakiya3@gmail.com"));
-            email.To.Add(MailboxAddress.Parse(WorkerEmail));
-            email.Subject = "Co-Worker Suggestion";
-            email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
-
-            // send email
-            using var smtp = new SmtpClient();
-            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("vasudedakiya3@gmail.com", "whdatdbclkgporxj");
-            smtp.Send(email);
-            smtp.Disconnect(true);
-            #endregion Send Mail
-
-            return Json("True");
+            return RedirectToAction("StoryList", "Story");
         }
         #endregion Suggest CoWorker
     }

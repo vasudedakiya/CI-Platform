@@ -8,6 +8,7 @@ namespace CIPlatform.Controllers
     public class TimeSheetController : Controller
     {
         public CiPlatformContext _db = new CiPlatformContext();
+
         #region TimeSheet Home
         public IActionResult TimeSheet()
         {
@@ -64,31 +65,34 @@ namespace CIPlatform.Controllers
 
         #region POST 
         [HttpPost]
-        public JsonResult AddTimeMission(TimeSheetModel model)
+        public IActionResult AddTimeMission(TimeSheetModel model)
         {
-            if (model.timeSheet.Minute != null && model.timeSheet.Minute / 60 > 0)
+            if (model.timeSheet.MissionId != 0 && model.timeSheet.DateVolunteered != DateTime.MinValue && (model.timeSheet.Hour != null || model.timeSheet.Minute !=null))
             {
-                model.timeSheet.Hour = model.timeSheet.Hour + (int)(model.timeSheet.Minute / 60);
-                model.timeSheet.Minute = model.timeSheet.Minute % 60;
-            }
-            var timesheet = new Timesheet();
-            timesheet = model.timeSheet;
-            timesheet.UserId = int.Parse(HttpContext.Session.GetString("UserId"));
+                if (model.timeSheet.Minute != null && model.timeSheet.Minute / 60 > 0)
+                {
+                    model.timeSheet.Hour = model.timeSheet.Hour + (int)(model.timeSheet.Minute / 60);
+                    model.timeSheet.Minute = model.timeSheet.Minute % 60;
+                }
+                var timesheet = new Timesheet();
+                timesheet = model.timeSheet;
+                timesheet.UserId = int.Parse(HttpContext.Session.GetString("UserId"));
 
-            if (model.timeSheet.TimesheetId == 0)
-            {
-                timesheet.Status = 1;
-                _db.Timesheets.Add(timesheet);
-            }
-            else
-            {
-                timesheet.UpdatedAt = DateTime.Now;
-                _db.Timesheets.Update(timesheet);
+                if (model.timeSheet.TimesheetId == 0)
+                {
+                    timesheet.Status = 1;
+                    _db.Timesheets.Add(timesheet);
+                }
+                else
+                {
+                    timesheet.UpdatedAt = DateTime.Now;
+                    _db.Timesheets.Update(timesheet);
+                }
+
+                _db.SaveChanges();
             }
 
-            _db.SaveChanges();
-
-            return Json("true");
+            return RedirectToAction("TimeSheet", "TimeSheet");
         }
         #endregion POST 
 
@@ -139,24 +143,27 @@ namespace CIPlatform.Controllers
 
         #region POST
         [HttpPost]
-        public JsonResult AddGoalMission(TimeSheetModel model)
+        public IActionResult AddGoalMission(TimeSheetModel model)
         {
-            var timesheet = new Timesheet();
-            timesheet = model.timeSheet;
-            timesheet.UserId = int.Parse(HttpContext.Session.GetString("UserId"));
-            if (model.timeSheet.TimesheetId == 0)
+            if (model.timeSheet.MissionId != 0 && model.timeSheet.DateVolunteered != DateTime.MinValue && model.timeSheet.Action != null)
             {
-                timesheet.Status = 1;
-                _db.Timesheets.Add(timesheet);
-            }
-            else
-            {
-                timesheet.UpdatedAt = DateTime.Now;
-                _db.Timesheets.Update(timesheet);
-            }
-            _db.SaveChanges();
+                var timesheet = new Timesheet();
+                timesheet = model.timeSheet;
+                timesheet.UserId = int.Parse(HttpContext.Session.GetString("UserId"));
+                if (model.timeSheet.TimesheetId == 0)
+                {
+                    timesheet.Status = 1;
+                    _db.Timesheets.Add(timesheet);
+                }
+                else
+                {
+                    timesheet.UpdatedAt = DateTime.Now;
+                    _db.Timesheets.Update(timesheet);
+                }
+                _db.SaveChanges();
 
-            return Json("true");
+            }
+            return RedirectToAction("TimeSheet", "TimeSheet");
         }
         #endregion POST
 

@@ -61,8 +61,9 @@ namespace CIPlatform.Controllers
            
             #region Store Info in session
             HttpContext.Session.SetString("UserId", user.UserId.ToString());
-            HttpContext.Session.SetString("UserName", user.FirstName.ToString());
+            HttpContext.Session.SetString("UserName", user.FirstName.ToString() + " " + user.LastName.ToString());
             HttpContext.Session.SetString("Role", "0");
+            HttpContext.Session.SetString("Img", user.Avatar.ToString());
 
             #endregion Store Info in session
 
@@ -82,6 +83,7 @@ namespace CIPlatform.Controllers
         [HttpPost]
         public IActionResult Register(LoginModel model)
         {
+
             var user = _db.Users.FirstOrDefault(u => u.Email.Equals(model.user.Email.ToLower()) && u.DeletedAt == null);
 
             if (user == null)

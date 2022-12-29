@@ -1,8 +1,11 @@
-﻿namespace CIPlatform.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CIPlatform.Models
 {
     public class ContactUsModel
     {
         public int UserId { get; set; }
+
         public string UserName { get; set; }
 
         public string UserEmail { get; set; }

@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ClPlatform</title>
+    <title>@ViewData["Title"] - CIPlatform</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ClPlatform.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -112,9 +112,9 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                        aria-expanded="false">
-                                        <img src="../assets/volunteer3.png" alt="hugenerd" width="30" height="30"
+                                        <img src="~/assets/volunteer_General.jpg" alt="hugenerd" width="30" height="30"
                                              class="rounded-circle">
-                                        <span class="d-none d-sm-inline text-dark mx-1">Vasu</span>
+                                        <span class="d-none d-sm-inline text-dark mx-1">@Context.Session.GetString("UserName")</span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         @*<li><a class="dropdown-item" asp-controller="Mission" asp-action="MissionListing">Goto Site</a></li>*@
