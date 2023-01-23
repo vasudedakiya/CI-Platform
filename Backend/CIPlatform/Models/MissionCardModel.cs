@@ -10,7 +10,7 @@ namespace CIPlatform.Models
 
         public int? missionRating { get; set; }
 
-        public int? seatsLeft { get; set; }
+        public int? seatsLeft { get; set; } 
 
         public int? favMission { get; set; }
 

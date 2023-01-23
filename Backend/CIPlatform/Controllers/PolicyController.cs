@@ -9,7 +9,7 @@ namespace CIPlatform.Controllers
 
         public IActionResult Policy()
         {
-            var policys = _db.CmsPages.ToList();
+            var policys = _db.CmsPages.Where(x=>x.DeletedAt == null).ToList();
             return View(policys);
         }
     }

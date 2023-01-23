@@ -2,8 +2,6 @@
 
     var PlaceHolderElement = $('#PlaceHolderHere');
     $('button[data-toggle="ajax-modal"]').click(function (event) {
-
-        console.log("It's run");
         var url = $(this).data('url');
         var decodeUrl = decodeURIComponent(url);
         $.get(decodeUrl).done(function (data) {

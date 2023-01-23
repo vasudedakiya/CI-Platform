@@ -454,12 +454,11 @@ namespace CIPlatform.Controllers
             for (int i = 0; i < tempMission.Count(); i++)
             {
                 cardData.Add(CreateCard(tempMission[i]));
+                if (i > 2)
+                    break;
             }
             #endregion Create Card
-
             return cardData;
-
-
         }
         #endregion Related Mission
 
@@ -495,7 +494,7 @@ namespace CIPlatform.Controllers
             }
             card.favMission = _db.FavouriteMissions.FirstOrDefault(x => x.MissionId == item.MissionId && x.UserId == int.Parse(HttpContext.Session.GetString("UserId")) && x.DeletedAt == null) != null ? 1 : 0;
             card.theme = _db.Themes.FirstOrDefault(x => x.ThemeId == item.ThemeId).Title;
-            card.country = _db.Countries.FirstOrDefault(x => x.CountryId == item.CountryId).Name;
+            card.country = _db.Cities.FirstOrDefault(x => x.CityId == item.CityId).Name;
 
             float totalRate = 0;
             float user = 0;

@@ -95,7 +95,7 @@ namespace CIPlatform.Controllers
                 return RedirectToAction("Login", "Login");
             }
 
-            TempData["ErrorMes"] = "User Alrady exist with same Email";
+            TempData["ErrorMes"] = "User alraedy exist with same email";
             var loginModel = new LoginModel();
             loginModel.banner = GetBanner();
             return View(loginModel);

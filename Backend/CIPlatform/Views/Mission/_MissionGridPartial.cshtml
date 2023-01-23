@@ -59,7 +59,6 @@
                         <i class="bi bi-geo-alt"></i>
                         <span class="text-wrap">
                             @item.country
-                            @* Country*@
                         </span>
                     </button>
                     @if (item.favMission == 0)
@@ -122,7 +121,7 @@
                             <div class="col-6 text-wrap">
                                 <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>@Convert.ToDateTime(item.mission.Deadline).ToString("dd/MM/yyyy")</span>
                                 <br style="padding: 0px;">
-                                <span class="cardSmallText ms-5">Dedline</span>
+                                <span class="cardSmallText ms-5">Deadline</span>
                             </div>
                         }
                         else
@@ -134,7 +133,9 @@
                                   style="width: @item.progressBar%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
                                     </span>
                                 </span>
-                                <span class="cardSmallText ms-5">Achieved</span>
+                                <span class="cardSmallText ms-5">
+                                        @((@item.progressBar * @item.goalMission.GoalValue)/100)
+                                     Achieved</span>
                             </div>
                         }
                     </div>

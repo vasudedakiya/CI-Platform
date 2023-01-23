@@ -139,7 +139,7 @@
                 <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block ">
                     <input type="search" id="box" onkeyup="Search()" class="form-control customshadow"
                            style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
-                           placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                           placeholder=" &#xF002; Search Mission..." aria-label="Search" />
                 </form>
                 <ul class="navbar-nav ms-auto my-2 my-lg-0 navInline">
                     <li class="nav-item dropdown border-lg-left border-sm-left-0 p-2">
@@ -181,7 +181,7 @@
 
                         <div id="skillDiv">
                             <select id="ddlSkill" class="border-0" multiple asp-items="Model.skills"
-                                    placeholder="Skill"
+                                    placeholder="Skills"
                                     data-search="true" data-silent-initial-value-set="true">
                             </select>
                         </div>
@@ -216,7 +216,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <label class="fs-4">Explore <span class="fw-semibold">@Model.TotalMission mission</span></label>
+            <label class="fs-4">Explore <span class="fw-semibold">@Model.TotalMission missions</span></label>
             <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
 
                 <li class="nav-item me-md-4 d-none d-lg-block">
@@ -286,33 +286,5 @@
                 }
             </ul>
         }
-
-        @* <ul class="pagination justify-content-center">
-            <li class="page-item">
-            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Previous">
-            <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
-            </a>
-            </li>
-            <li class="page-item">
-            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Previous">
-            <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
-            </a>
-            </li>
-            <li class="page-item me-1"><a class="page-link btn btn-outline-warning text-gray" href="#">1</a></li>
-            <li class="page-item me-1"><a class="page-link btn btn-outline-warning text-gray" href="#">2</a></li>
-            <li class="page-item me-1"><a class="page-link btn btn-outline-warning text-gray" href="#">3</a></li>
-            <li class="page-item me-1"><a class="page-link btn btn-outline-warning text-gray" href="#">4</a></li>
-            <li class="page-item me-1"><a class="page-link btn btn-outline-warning text-gray" href="#">5</a></li>
-            <li class="page-item">
-            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Next">
-            <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
-            </a>
-            </li>
-            <li class="page-item">
-            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Next">
-            <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
-            </a>
-            </li>
-            </ul>*@
     </nav>
 </div>

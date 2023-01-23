@@ -269,10 +269,12 @@
                     <div class="col-5 text-wrap d-inline">
                         <span class="progress" style="height: 10px; margin-top: 8px; width: 100%;">
                             <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
-                              style="width: 68%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
+                              style="width: @Model.missionCard.progressBar%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
                             </span>
                         </span>
-                        <span class="cardSmallText ms-5">Achieved</span>
+                        <span class="cardSmallText ms-5">
+                            @((Model.missionCard.progressBar * Model.missionCard.goalMission.GoalValue)/100)
+                            Achieved</span>
                     </div>
                 }
             </div>
@@ -383,11 +385,22 @@
             </div>
 
             <div class="cardAction mt-3">
-                <button type="button" onclick="ApplyMission(@Model.missionCard.mission.MissionId)" class="btn btn-outline-warning rounded-pill"
+                @if (Model.missionCard.mission.Deadline > DateTime.Now && Model.missionCard.seatsLeft > 0)
+                {
+                    <button type="button" onclick="ApplyMission(@Model.missionCard.mission.MissionId)" class="btn btn-outline-warning rounded-pill"
                         style="margin-left: auto; margin-right: auto;">
-                    <span class="text-wrap">Apply Now </span>
-                    <i class="bi bi-arrow-right ms-3"></i>
-                </button>
+                        <span class="text-wrap">Apply Now </span>
+                        <i class="bi bi-arrow-right ms-3"></i>
+                    </button>
+                }
+                else if (Model.missionCard.mission.MissionType == 2 && Model.missionCard.seatsLeft > 0 && Model.missionCard.progressBar < 100)
+                {
+                    <button type="button" onclick="ApplyMission(@Model.missionCard.mission.MissionId)" class="btn btn-outline-warning rounded-pill"
+                        style="margin-left: auto; margin-right: auto;">
+                        <span class="text-wrap">Apply Now </span>
+                        <i class="bi bi-arrow-right ms-3"></i>
+                    </button>
+                }
             </div>
 
         </div>
